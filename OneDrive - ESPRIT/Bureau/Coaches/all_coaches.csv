@@ -1,0 +1,100 @@
+name;club;birth_date;age;place_of_birth;citizenship;appointment_date;contract_until_date;coaching_licence;avg_term_as_coach;preffered_formation;current_league;current_league_country
+Pep Guardiola;Man City;18/01/1971;50;Santpedor;Spain;01/07/2016;30/06/2023;SEG;3.38 Years;4-3-3 Attacking;Premier League;England
+Ole Gunnar Solskjaer;Without Club;26/02/1973;48;Kristiansund;Norway;NA;NA;Jim Solbakken;2.05 Years;4-2-3-1;Premier League;England
+Thomas Tuchel;Chelsea;29/08/1973;48;Krumbach;Germany;26/01/2021;30/06/2024;Dr. Olaf Meinking;2.28 Years;3-4-2-1;Premier League;England
+Jürgen Klopp;Liverpool;16/06/1967;54;Stuttgart;Germany;08/10/2015;30/06/2024;UEFA Pro Licence;5.40 Years;4-3-3 Attacking;Premier League;England
+Nuno Espírito Santo;Without Club;25/01/1974;47;São Tomé;Portugal;NA;NA;Gestifute;1.76 Years;03/04/2003;Premier League;England
+Brendan Rodgers;Leicester;26/01/1973;48;Carnlough;Northern Ireland;27/02/2019;30/06/2025;UEFA Pro Licence;2.02 Years;4-2-3-1;Premier League;England
+Rafael Benítez;Everton;16/04/1960;61;Madrid;Spain;01/07/2021;30/06/2024;Manuel García ...;1.91 Years;4-2-3-1;Premier League;England
+Dean Smith;Norwich;19/03/1971;50;West Bromwich;England;15/11/2021;30/06/2023;UEFA Pro Licence;2.75 Years;4-2-3-1;Premier League;England
+Bruno Lage;Wolves;12/05/1976;45;Setúbal;Portugal;01/07/2021;30/06/2024;Gestifute;1.31 Years;05/04/2001;Premier League;England
+David Moyes;West Ham;25/04/1963;58;Glasgow;Scotland;29/12/2019;30/06/2024;UEFA Pro Licence;3.23 Years;4-2-3-1;Premier League;England
+Marcelo Bielsa;Leeds;21/07/1955;66;Rosario;Argentina;01/07/2018;30/06/2022;UEFA Pro Licence;1.83 Years;4-1-4-1;Premier League;England
+Graham Potter;Brighton;20/05/1975;46;Solihull;England;20/05/2019;30/06/2025;UEFA Pro Licence;3.65 Years;4-2-3-1;Premier League;England
+Ralph Hasenhüttl;Southampton;09/08/1967;54;Graz;Austria;06/12/2018;30/06/2024;UEFA Pro Licence;2.09 Years;4-4-2 double 6;Premier League;England
+Patrick Vieira;Crystal Palace;23/06/1976;45;Dakar;France;04/07/2021;30/06/2024;Sport Cover;2.06 Years;4-3-3 Attacking;Premier League;England
+Graeme Jones;Newcastle;13/03/1970;51;Gateshead;England;27/01/2021;NA;UEFA Pro Licence;0.51 Years;4-3-1-2;Premier League;England
+Thomas Frank;Brentford;09/10/1973;48;Frederiksværk;Denmark;16/10/2018;30/06/2023;Elite Consulting;2.11 Years;4-3-3 Attacking;Premier League;England
+Daniel Farke;Without Club;30/10/1976;45;Steinhausen;Germany;NA;NA;UEFA Pro Licence;4.07 Years;4-2-3-1;Premier League;England
+Claudio Ranieri;Watford;20/10/1951;70;Roma;Italy;04/10/2021;30/06/2023;Only4Stars;1.30 Years;4-4-1-1;Premier League;England
+Mikel Arteta;Arsenal;26/03/1982;39;San Sebastián;Spain;22/12/2019;30/06/2023;-;2.05 Years;4-2-3-1;Premier League;England
+Sean Dyche;Burnley;28/06/1971;50;Kettering;England;30/10/2012;30/06/2025;-;4.07 Years;4-4-2 double 6;Premier League;England
+Simone Inzaghi;Inter;05/04/1976;45;Piacenza;Italy;03/06/2021;30/06/2023;UEFA Pro Licence;1.92 Years;3-5-2 flat;Serie A;Italy
+Luciano Spalletti;SSC Napoli;07/03/1959;62;Certaldo;Italy;01/07/2021;30/06/2023;UEFA Pro Licence;1.44 Years;4-2-3-1;Serie A;Italy
+Stefano Pioli;AC Milan;20/10/1965;56;Parma;Italy;09/10/2019;30/06/2023;GG11 s.r.l.;1.20 Years;4-2-3-1;Serie A;Italy
+José Mourinho;AS Roma;26/01/1963;58;Setúbal;Portugal;01/07/2021;30/06/2024;Gestifute;1.79 Years;4-2-3-1;Serie A;Italy
+Gian Piero Gasperini;Atalanta BC;26/01/1958;63;Grugliasco;Italy;14/06/2016;30/06/2024;GOAL CLUB;2.77 Years;3-4-2-1;Serie A;Italy
+Maurizio Sarri;Lazio;10/01/1959;62;Napoli;Italy;09/06/2021;30/06/2023;LIAN Sports Group;1.15 Years;4-3-3 Attacking;Serie A;Italy
+Vincenzo Italiano;Fiorentina;10/12/1977;44;Karlsruhe;Italy;01/07/2021;30/06/2023;UEFA Pro Licence;0.88 Years;4-3-3 Attacking;Serie A;Italy
+Alessio Dionisi;Sassuolo;01/04/1980;41;Abbadia San ...;Italy;01/07/2021;30/06/2023;Italian Managers ...;0.98 Years;4-3-1-2;Serie A;Italy
+Ivan Juric;Torino;25/08/1975;46;Split;Croatia;01/07/2021;30/06/2024;UEFA Pro Licence;0.84 Years;3-4-2-1;Serie A;Italy
+Walter Mazzarri;Cagliari Calcio;01/10/1961;60;San Vincenzo;Italy;15/09/2021;30/06/2024;UEFA Pro Licence;1.64 Years;4-4-2 double 6;Serie A;Italy
+Sinisa Mihajlovic;Bologna;20/02/1969;52;Vukovar;Serbia;28/01/2019;30/06/2023;UEFA Pro Licence;1.20 Years;4-2-3-1;Serie A;Italy
+Roberto D'Aversa;Sampdoria;12/08/1975;46;Stuttgart;Italy;04/07/2021;30/06/2023;UEFA Pro Licence;1.54 Years;4-3-3 Attacking;Serie A;Italy
+Igor Tudor;Hellas Verona;16/04/1978;43;Split;Croatia;14/09/2021;30/06/2022;UEFA Pro Licence;0.74 Years;3-4-2-1;Serie A;Italy
+Luca Gotti;Without Club;13/09/1967;54;Adria;Italy;NA;NA;UEFA Pro Licence;1.31 Years;3-5-2 flat;Serie A;Italy
+Davide Ballardini;Without Club;06/01/1964;58;Ravenna;Italy;NA;NA;P&P Sport ...;0.96 Years;3-5-2 flat;Serie A;Italy
+Aurelio Andreazzoli;FC Empoli;05/11/1953;68;Massa;Italy;21/06/2021;30/06/2022;UEFA Pro Licence;0.89 Years;4-3-1-2;Serie A;Italy
+Thiago Motta;Spezia Calcio;28/08/1982;39;São Bernardo do ...;Italy;08/07/2021;30/06/2024;UEFA Pro Licence;0.56 Years;4-2-3-1;Serie A;Italy
+Paolo Zanetti;Venezia;16/12/1982;39;Valdagno;Italy;14/08/2020;30/06/2025;UEFA Pro Licence;1.22 Years;4-3-3 Attacking;Serie A;Italy
+Stefano Colantuono;Salernitana;23/10/1962;59;Roma;Italy;17/10/2021;30/06/2022;UEFA Pro Licence;1.11 Years;4-3-1-2;Serie A;Italy
+Massimiliano Allegri;Juventus;11/08/1967;54;Livorno;Italy;28/05/2021;30/06/2025;-;UEFA Pro Licence;1.46 Years;Serie A;Italy
+Massimiliano Allegri;Juventus;11/08/1967;54;Livorno;Italy;28/05/2021;30/06/2025;-;UEFA Pro Licence;1.46 Years;Serie A;Italy
+Carlo Ancelotti;Real Madrid;10/06/1959;62;Reggiolo;Italy;01/07/2021;30/06/2024;CAA Base Ltd;2.09 Years;4-3-3 Attacking;La Liga;Spain
+Diego Simeone;Atlético Madrid;28/04/1970;51;San Nicolás;Argentina;23/12/2011;30/06/2024;UEFA Pro Licence;2.09 Years;4-4-2 double 6;La Liga;Spain
+Ronald Koeman;Without Club;21/03/1963;58;Zaandam;Netherlands;NA;NA;Wasserman;1.65 Years;4-3-3 Attacking;La Liga;Spain
+Julen Lopetegui;Sevilla FC;28/09/1966;55;Asteasu;Spain;01/07/2019;30/06/2024;UEFA Pro Licence;1.77 Years;4-3-3 Attacking;La Liga;Spain
+Imanol Alguacil;Real Sociedad;04/07/1971;50;Orio;Spain;27/12/2018;30/06/2023;YOU FIRST SPORTS ;2.28 Years;4-2-3-1;La Liga;Spain
+Unai Emery;Villarreal;03/11/1971;50;Hondarribia;Spain;23/07/2020;30/06/2023;AC Talent;2.03 Years;4-4-2 double 6;La Liga;Spain
+Pepe Bordalás;Valencia;05/03/1964;57;Alicante;Spain;01/07/2021;30/06/2023;InterStarDeporte;1.57 Years;04/04/2002;La Liga;Spain
+Manuel Pellegrini;Real Betis;16/09/1953;68;Santiago;Chile;01/08/2020;30/06/2025;no agent;1.91 Years;4-2-3-1;La Liga;Spain
+Marcelino;Athletic;14/08/1965;56;Careñes;Spain;04/01/2021;30/06/2022;Eugenio Botas ...;1.60 Years;04/04/2002;La Liga;Spain
+Quique Sánchez Flores;Getafe;02/02/1965;56;Madrid;Spain;06/10/2021;30/06/2022;Relatives;1.45 Years;05/03/2002;La Liga;Spain
+Eduardo Coudet;Celta de Vigo;12/09/1974;47;Buenos Aires;Argentina;12/11/2020;30/06/2024;Scorefutbol;1.29 Years;4-4-2 Diamond;La Liga;Spain
+Vicente Moreno;Espanyol;26/10/1974;47;Massanassa;Spain;04/08/2020;30/06/2023;Promoesport;2.06 Years;4-2-3-1;La Liga;Spain
+Javier Pereira;Without Club;13/05/1966;55;Badajoz;Spain;NA;NA;SOCCERMEDIA, S.L.;1.36 Years;05/03/2002;La Liga;Spain
+Jagoba Arrasate;CA Osasuna;22/04/1978;43;Berriatua;Spain;01/07/2018;30/06/2022;YOU FIRST SPORTS ;2.38 Years;4-4-2 double 6;La Liga;Spain
+Robert Moreno;Granada CF;19/09/1977;44;Barcelona;Spain;01/07/2021;30/06/2023;Relatives;0.44 Years;4-3-3 Attacking;La Liga;Spain
+Luis García;RCD Mallorca;01/12/1972;49;Madrid;Spain;06/08/2020;30/06/2022;1.32 Years;4-2-3-1;NA;La Liga;Spain
+Javier Calleja;Without Club;12/05/1978;43;Madrid;Spain;NA;NA;AIS Management;1.15 Years;4-3-3 Attacking;La Liga;Spain
+Andoni Iraola;Rayo Vallecano;22/06/1982;39;Usurbil;Spain;06/08/2020;30/06/2022;IDUB GLOBAL;1.03 Years;4-2-3-1;La Liga;Spain
+Álvaro Cervera;Cádiz CF;20/09/1965;56;Santa Isabel;Spain;18/04/2016;30/06/2024;YOU FIRST SPORTS ;1.18 Years;4-4-2 double 6;La Liga;Spain
+Fran Escribá;Without Club;03/05/1965;56;Valencia;Spain;NA;NA;Licence trainer;1.22 Years;04/04/2002;La Liga;Spain
+Mauricio Pochettino;Paris SG;02/03/1972;49;Murphy;Argentina;02/01/2021;30/06/2023;no agent;2.93 Years;4-3-3 Attacking;Ligue 1;France
+Niko Kovac;Without Club;15/10/1971;50;Berlin;Croatia;NA;NA;Alen Augustincic;1.58 Years;4-4-2 double 6;Ligue 1;France
+Peter Bosz;Olympique Lyon;21/11/1963;58;Apeldoorn;Netherlands;29/05/2021;30/06/2023;ISM Int. Soccer ...;1.52 Years;4-2-3-1;Ligue 1;France
+Jocelyn Gourvennec;LOSC Lille;22/03/1972;49;Brest;France;05/07/2021;30/06/2023;UEFA Pro Licence;2.12 Years;4-4-2 double 6;Ligue 1;France
+Jorge Sampaoli;Marseille;13/03/1960;61;Casilda;Argentina;08/03/2021;30/06/2023;Football Italia;1.22 Years;4-2-3-1;Ligue 1;France
+Christophe Galtier;OGC Nice;28/08/1966;55;Marseille;France;01/07/2021;30/06/2024;score agencies;3.86 Years;4-4-2 double 6;Ligue 1;France
+Bruno Génésio;Stade Rennais;01/09/1966;55;Lyon;France;04/03/2021;30/06/2023;Pini Zahavi;1.75 Years;4-3-3 Attacking;Ligue 1;France
+Vladimir Petkovic;G. Bordeaux;15/08/1963;58;Sarajevo;Switzerland;28/07/2021;30/06/2024;UEFA Pro Licence;2.35 Years;3-4-1-2;Ligue 1;France
+Frédéric Antonetti;FC Metz;19/08/1961;60;Venzolasca;France;13/10/2020;30/06/2024;SAS ASSIST & GOAL;2.50 Years;3-4-1-2;Ligue 1;France
+Óscar García;Stade Reims;26/04/1973;48;Sabadell;Spain;23/06/2021;30/06/2024;Wasserman;0.79 Years;4-3-3 Attacking;Ligue 1;France
+Olivier Dall'Oglio;Montpellier;16/05/1964;57;Alès;France;01/06/2021;30/06/2024;UEFA Pro Licence;2.20 Years;4-2-3-1;Ligue 1;France
+Franck Haise;Lens;15/04/1971;50;Mont-Saint-Aignan;France;25/02/2020;30/06/2023;Carmenta;2.26 Years;3-4-1-2;Ligue 1;France
+Antoine Kombouaré;FC Nantes;16/11/1963;58;Nouméa;France;11/02/2021;30/06/2023;UEFA Pro Licence;1.93 Years;4-2-3-1;Ligue 1;France
+Julien Stéphan;R. Strasbourg;18/09/1980;41;Rennes;France;28/05/2021;30/06/2024;UEFA Pro Licence;2.21 Years;4-3-3 Attacking;Ligue 1;France
+Michel Der Zakarian;Stade Brestois;18/02/1963;58;Jerewan;Armenia;22/06/2021;30/06/2023;CAA Base Ltd;1.91 Years;4-2-3-1;Ligue 1;France
+Gérald Baticle;SCO Angers;10/09/1969;52;Amiens;France;27/05/2021;30/06/2025;UEFA Pro Licence;1.39 Years;3-4-1-2;Ligue 1;France
+Christophe Pélissier;FC Lorient;05/10/1965;56;Revel;France;29/05/2019;30/06/2024;CLK FOOT;3.81 Years;4-2-3-1;Ligue 1;France
+Laurent Batlles;Without Club;23/09/1975;46;Nantes;France;NA;NA;UEFA Pro Licence;2.17 Years;3-5-2 flat;Ligue 1;France
+Pascal Gastien;Clermont Foot;02/12/1963;58;Rochefort;France;01/09/2017;30/06/2023;Louis DENOLLE;4.06 Years;4-2-3-1;Ligue 1;France
+Claude Puel;Without Club;02/09/1961;60;Castres;France;NA;NA;-;2.63 Years;4-2-3-1;Ligue 1;France
+Julian Nagelsmann;FC Bayern ;23/07/1987;34;Landsberg am Lech;Germany;01/07/2021;30/06/2026;Sports360 GmbH;2.00 Years;3-4-2-1;Bundesliga;Germany
+Marco Rose;Bor. Dortmund;11/09/1976;45;Leipzig;Germany;01/07/2021;30/06/2024;UEFA Pro Licence;1.50 Years;4-2-3-1;Bundesliga;Germany
+Gerardo Seoane;Bay. Leverkusen;30/10/1978;43;Luzern;Switzerland;01/07/2021;30/06/2024;Signature - ISCM AG;1.50 Years;04/04/2002;Bundesliga;Germany
+Mark van Bommel;Without Club;22/04/1977;44;Maasbracht;Netherlands;NA;NA;UEFA Pro Licence;0.93 Years;4-2-3-1;Bundesliga;Germany
+Adi Hütter;Bor. M'gladbach;11/02/1970;51;Hohenems;Austria;01/07/2021;30/06/2024;Sand Christian ...;1.89 Years;3-4-2-1;Bundesliga;Germany
+Sebastian Hoeneß;TSG Hoffenheim;12/05/1982;39;München;Germany;02/08/2020;30/06/2023;UEFA Pro Licence;1.64 Years;3-4-1-2;Bundesliga;Germany
+Oliver Glasner;E. Frankfurt;28/08/1974;47;Salzburg;Austria;01/07/2021;30/06/2024;UEFA Pro Licence;1.52 Years;4-2-3-1;Bundesliga;Germany
+Pellegrino Matarazzo;VfB Stuttgart;28/11/1977;44;Wayne, New Jersey;United States;30/12/2019;30/06/2024;UEFA Pro Licence;1.51 Years;3-4-2-1;Bundesliga;Germany
+Christian Streich;SC Freiburg;11/06/1965;56;Weil am Rhein;Germany;29/12/2011;30/06/2022;UEFA Pro Licence;8.68 Years;4-4-2 double 6;Bundesliga;Germany
+Pál Dárdai;Without Club;16/03/1976;45;Pécs;Hungary;NA;NA;UEFA Pro Licence;1.37 Years;4-2-3-1;Bundesliga;Germany
+Bo Svensson;1.FSV Mainz 05;04/08/1979;42;Skorping;Denmark;04/01/2021;30/06/2024;UEFA Pro Licence;1.12 Years;3-4-1-2;Bundesliga;Germany
+Markus Weinzierl;FC Augsburg;28/12/1974;47;Straubing;Germany;26/04/2021;30/06/2022;BMS Sportconsulting ...;1.97 Years;4-4-2 double 6;Bundesliga;Germany
+Steffen Baumgart;1. FC Köln;05/01/1972;50;Rostock;Germany;01/07/2021;30/06/2023;UEFA Pro Licence;1.64 Years;4-1-4-1;Bundesliga;Germany
+Urs Fischer;Union Berlin;20/02/1966;55;Zürich;Switzerland;01/07/2018;30/06/2023;FPA Fairplay Agency ...;2.10 Years;3-4-1-2;Bundesliga;Germany
+Frank Kramer;Arm. Bielefeld;03/05/1972;49;Memmingen;Germany;02/03/2021;30/06/2023;UEFA Pro Licence;1.23 Years;4-2-3-1;Bundesliga;Germany
+Thomas Reis;VfL Bochum;04/10/1973;48;Wertheim;Germany;06/09/2019;30/06/2023;SEG;1.38 Years;4-2-3-1;Bundesliga;Germany
+Stefan Leitl;Greuther Fürth;29/08/1977;44;München;Germany;05/02/2019;30/06/2023;ROOF;1.63 Years;4-3-1-2;Bundesliga;Germany
+Jesse Marsch;Without Club;08/11/1973;48;Racine, Wisconsin;United States;NA;NA;-;1.79 Years;4-4-2 double 6;Bundesliga;Germany

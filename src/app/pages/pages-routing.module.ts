@@ -6,83 +6,78 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
-const routes: Routes = [{
-  path: '',
-  component: PagesComponent,
-  children: [
-    {
-      path: 'dashboard',
-      component: ECommerceComponent,
-    },
-    {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
-    },
-    {
-      path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
-    },
-    {
-      path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
-    },
-    {
-      path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
-    },
-    {
-      path: 'modal-overlays',
-      loadChildren: () => import('./modal-overlays/modal-overlays.module')
-        .then(m => m.ModalOverlaysModule),
-    },
-    {
-      path: 'extra-components',
-      loadChildren: () => import('./extra-components/extra-components.module')
-        .then(m => m.ExtraComponentsModule),
-    },
-    {
-      path: 'maps',
-      loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
-    },
-    {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
-      path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
-    },
-    {
-      path: 'tables',
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
-    },
-    {
-      path: 'miscellaneous',
-      loadChildren: () => import('./miscellaneous/miscellaneous.module')
-        .then(m => m.MiscellaneousModule),
-    },
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full',
-    },
-    {
-      path: '**',
-      component: NotFoundComponent,
-    },
-  ],
-}];
+
+const routes: Routes = [
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
+        path: 'players',
+        loadChildren: () =>
+          import('./players/players.module').then(m => m.PlayersModule),
+      },
+      {
+        path: 'clubs',
+        loadChildren: () =>
+          import('./clubs/clubs.module').then(m => m.ClubsModule),
+      },
+      {
+        path: 'coaches',
+        loadChildren: () =>
+          import('./coaches/coaches.module').then(m => m.CoachesModule),
+      },
+      {
+        path: 'agents',
+        loadChildren: () =>
+          import('./agents/agents.module').then(m => m.AgentsModule),
+      },
+      {
+        path: 'scouts',
+        loadChildren: () =>
+          import('./scouts/scouts.module').then(m => m.ScoutsModule),
+      },
+      {
+        path: 'sponsors',
+        loadChildren: () =>
+          import('./sponsors/sponsors.module').then(m => m.SponsorsModule),
+      },
+      {
+        path: 'stats',
+        loadChildren: () =>
+          import('./stats/stats.module').then(m => m.StatsModule),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./settings/settings.module').then(m => m.SettingsModule),
+      },
+      {
+        path: 'extra-components/chat',
+        loadChildren: () =>
+          import('./extra-components/extra-components.module').then(m => m.ExtraComponentsModule),
+      },
+      {
+        path: 'maps',
+        loadChildren: () =>
+          import('./maps/maps.module').then(m => m.MapsModule),
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule {
-}
+export class PagesRoutingModule {}

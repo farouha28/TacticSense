@@ -1,0 +1,10 @@
+<nb-card>
+  <nb-card-header>Liste des Entraîneurs</nb-card-header>
+  <nb-card-body>
+    <ul>
+      <li *ngFor="let coach of coaches">
+        <strong>{{ coach.name }}</strong> – {{ coach.club }} ({{ coach.experience }} ans d’expérience)
+      </li>
+    </ul>
+  </nb-card-body>
+</nb-card>

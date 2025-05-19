@@ -1,0 +1,11 @@
+<nb-card>
+  <nb-card-header>Agents de joueurs</nb-card-header>
+  <nb-card-body>
+    <p>Voici la liste des agents et le nombre de joueurs qu'ils représentent :</p>
+    <ul>
+      <li *ngFor="let agent of agents">
+        <strong>{{ agent.name }}</strong> – Représente <strong>{{ agent.clients }}</strong> joueurs
+      </li>
+    </ul>
+  </nb-card-body>
+</nb-card>

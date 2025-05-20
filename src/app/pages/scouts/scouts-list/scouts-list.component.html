@@ -1,1 +1,50 @@
-<p>scouts-list works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="header-container">
+      <h2>Recruteurs</h2>
+      <div class="search-container">
+        <input nbInput placeholder="Rechercher un recruteur..." [(ngModel)]="searchQuery" (input)="searchScouts()">
+        <button nbButton status="primary" size="small" class="search-btn">
+          <nb-icon icon="search-outline"></nb-icon>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let scout of filteredScouts">
+        <nb-card>
+          <nb-card-header>
+            <div class="scout-header">
+              <nb-user [name]="scout.name" [title]="scout.nationality" [picture]="scout.image" size="large"></nb-user>
+            </div>
+          </nb-card-header>
+          <nb-card-body>
+            <div class="scout-info">
+              <div class="info-row">
+                <span class="label">Club:</span>
+                <span class="value">{{ scout.club }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Région:</span>
+                <span class="value">{{ scout.region }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Découvertes:</span>
+                <span class="value">{{ scout.discoveries }}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Expérience:</span>
+                <span class="value">{{ scout.yearsExperience }} ans</span>
+              </div>
+            </div>
+          </nb-card-body>
+          <nb-card-footer>
+            <button nbButton status="primary" fullWidth>Voir le profil</button>
+          </nb-card-footer>
+        </nb-card>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+

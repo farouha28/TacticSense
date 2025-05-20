@@ -1,10 +1,41 @@
-<nb-card>
-  <nb-card-header>Liste des Entraîneurs</nb-card-header>
-  <nb-card-body>
-    <ul>
-      <li *ngFor="let coach of coaches">
-        <strong>{{ coach.name }}</strong> – {{ coach.club }} ({{ coach.experience }} ans d’expérience)
-      </li>
-    </ul>
-  </nb-card-body>
-</nb-card>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <h2>Entraîneurs</h2>
+        <div class="search-container">
+          <input 
+            nbInput 
+            placeholder="Rechercher un entraîneur..." 
+            [(ngModel)]="searchQuery"
+            (ngModelChange)="filterCoaches()"
+            fullWidth>
+        </div>
+      </nb-card-header>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let coach of filteredCoaches">
+    <nb-card>
+      <nb-card-header>
+        <div class="coach-header">
+          <nb-user [name]="coach.name" [title]="coach.nationality" [picture]="coach.image"></nb-user>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="coach-info">
+          <p><strong>Club:</strong> {{ coach.club }}</p>
+          <p><strong>Âge:</strong> {{ coach.age }} ans</p>
+          <p><strong>Expérience:</strong> {{ coach.experience }} ans</p>
+          <p><strong>Trophées:</strong> {{ coach.trophies }}</p>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="primary" fullWidth>Voir profil</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+

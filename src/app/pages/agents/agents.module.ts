@@ -1,17 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { 
+  NbCardModule, 
+  NbIconModule, 
+  NbInputModule, 
+  NbButtonModule, 
+  NbSelectModule, 
+  NbUserModule,
+  NbDialogModule,
+} from '@nebular/theme';
 
-import { AgentsRoutingModule } from './agents-routing.module';
+import { ThemeModule } from '../../@theme/theme.module';
 import { AgentsListComponent } from './agents-list/agents-list.component';
 
-
 @NgModule({
-  declarations: [
-    AgentsListComponent
-  ],
   imports: [
     CommonModule,
-    AgentsRoutingModule
-  ]
+    FormsModule,
+    ThemeModule,
+    NbCardModule,
+    NbIconModule,
+    NbInputModule,
+    NbButtonModule,
+    NbSelectModule,
+    NbUserModule,
+    NbDialogModule.forChild(),
+    RouterModule.forChild([
+      {
+        path: '',
+        component: AgentsListComponent,
+      },
+    ]),
+  ],
+  declarations: [
+    AgentsListComponent,
+  ],
 })
 export class AgentsModule { }

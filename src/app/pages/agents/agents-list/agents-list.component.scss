@@ -1,7 +1,40 @@
-ul {
-  padding-left: 1rem;
+@import '../../../@theme/styles/themes';
+@import '../../../@theme/styles/stakeholders';
 
-  li {
-    margin-bottom: 0.5rem;
+@include nb-install-component() {
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .agent-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    nb-user {
+      margin-bottom: 1rem;
+    }
+    
+    .info-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      
+      .info-item {
+        display: flex;
+        align-items: center;
+        
+        nb-icon {
+          margin-right: 0.5rem;
+          color: var(--text-hint-color);
+        }
+      }
+    }
   }
 }

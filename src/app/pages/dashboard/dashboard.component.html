@@ -1,42 +1,262 @@
-<div class="row">
-  <div class="col-xxxl-3 col-md-6" *ngFor="let statusCard of statusCards">
-    <ngx-status-card [title]="statusCard.title" [type]="statusCard.type">
-      <i [ngClass]="statusCard.iconClass"></i>
-    </ngx-status-card>
+<div class="header-container">
+  <h1>
+    <nb-icon icon="home-outline" pack="eva"></nb-icon>
+    Tableau de bord
+  </h1>
+  <div class="actions-container">
+    <button nbButton status="primary" size="medium">
+      <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
+      Actualiser
+    </button>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-temperature></ngx-temperature>
-  </div>
-
-  <div class="col-xxxl-9 col-xxl-8 col-lg-7 col-md-6">
-    <ngx-electricity></ngx-electricity>
+  <div class="col-xxxl-12 col-xxl-12 col-lg-12">
+    <nb-card class="welcome-card">
+      <nb-card-body>
+        <div class="welcome-content">
+          <h2>Bienvenue sur SportLink - Le LinkedIn du Sport</h2>
+          <p>
+            Explorez notre plateforme dédiée aux professionnels du sport. Connectez-vous avec des joueurs, 
+            clubs, agents et sponsors du monde entier.
+          </p>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-xxxl-9 col-xl-12">
-    <ngx-rooms></ngx-rooms>
+  <div class="col-xxxl-3 col-md-6">
+    <nb-card status="primary" class="stakeholder-card">
+      <nb-card-header>
+        <nb-icon icon="people-outline" pack="eva"></nb-icon>
+        Joueurs
+      </nb-card-header>
+      <nb-card-body>
+        <div class="stat-item">
+          <nb-icon icon="people-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">3,721</div>
+            <div class="stat-label">Joueurs inscrits</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">+12%</div>
+            <div class="stat-label">Ce mois-ci</div>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="primary" size="small" routerLink="/pages/players">
+          Voir tous les joueurs
+        </button>
+      </nb-card-footer>
+    </nb-card>
   </div>
 
-  <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
-    <ngx-contacts></ngx-contacts>
+  <div class="col-xxxl-3 col-md-6">
+    <nb-card status="info" class="stakeholder-card">
+      <nb-card-header>
+        <nb-icon icon="shield-outline" pack="eva"></nb-icon>
+        Clubs
+      </nb-card-header>
+      <nb-card-body>
+        <div class="stat-item">
+          <nb-icon icon="shield-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">482</div>
+            <div class="stat-label">Clubs enregistrés</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">+8%</div>
+            <div class="stat-label">Ce mois-ci</div>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="info" size="small" routerLink="/pages/clubs">
+          Voir tous les clubs
+        </button>
+      </nb-card-footer>
+    </nb-card>
   </div>
 
-  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
-    <ngx-solar [chartValue]="solarValue"></ngx-solar>
-
-    <ngx-kitten></ngx-kitten>
+  <div class="col-xxxl-3 col-md-6">
+    <nb-card status="success" class="stakeholder-card">
+      <nb-card-header>
+        <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
+        Agents
+      </nb-card-header>
+      <nb-card-body>
+        <div class="stat-item">
+          <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">215</div>
+            <div class="stat-label">Agents enregistrés</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">+5%</div>
+            <div class="stat-label">Ce mois-ci</div>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="success" size="small" routerLink="/pages/agents">
+          Voir tous les agents
+        </button>
+      </nb-card-footer>
+    </nb-card>
   </div>
 
-  <div class="col-xxxl-3 col-xxl-4 col-md-5">
-    <ngx-traffic></ngx-traffic>
-    <ngx-weather></ngx-weather>
+  <div class="col-xxxl-3 col-md-6">
+    <nb-card status="warning" class="stakeholder-card">
+      <nb-card-header>
+        <nb-icon icon="award-outline" pack="eva"></nb-icon>
+        Sponsors
+      </nb-card-header>
+      <nb-card-body>
+        <div class="stat-item">
+          <nb-icon icon="award-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">128</div>
+            <div class="stat-label">Sponsors actifs</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+          <div class="stat-content">
+            <div class="stat-value">+15%</div>
+            <div class="stat-label">Ce mois-ci</div>
+          </div>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="warning" size="small" routerLink="/pages/sponsors">
+          Voir tous les sponsors
+        </button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-8 col-xxl-8 col-lg-8">
+    <nb-card size="large">
+      <nb-card-header>
+        Transferts récents
+      </nb-card-header>
+      <nb-card-body>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Joueur</th>
+                <th>De</th>
+                <th>Vers</th>
+                <th>Montant</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let transfer of recentTransfers">
+                <td>
+                  <nb-user [name]="transfer.player.name" 
+                          [picture]="transfer.player.picture"
+                          size="small">
+                  </nb-user>
+                </td>
+                <td>
+                  <div class="club-info-small">
+                    <img [src]="transfer.fromClub.logo" [alt]="transfer.fromClub.name" class="club-logo-small">
+                    <span>{{ transfer.fromClub.name }}</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="club-info-small">
+                    <img [src]="transfer.toClub.logo" [alt]="transfer.toClub.name" class="club-logo-small">
+                    <span>{{ transfer.toClub.name }}</span>
+                  </div>
+                </td>
+                <td>{{ transfer.amount | currency:'EUR':'symbol':'1.0-0' }}</td>
+                <td>{{ transfer.date | date:'dd/MM/yyyy' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 
-  <div class="col-xxxl-6 col-xxl-12 col-md-7">
-    <ngx-security-cameras></ngx-security-cameras>
+  <div class="col-xxxl-4 col-xxl-4 col-lg-4">
+    <nb-card size="large">
+      <nb-card-header>
+        Top 5 des joueurs les plus valorisés
+      </nb-card-header>
+      <nb-card-body>
+        <div class="player-value-list">
+          <div class="player-value-item" *ngFor="let player of topPlayers; let i = index">
+            <div class="rank">{{ i + 1 }}</div>
+            <nb-user [name]="player.name" 
+                    [title]="player.club"
+                    [picture]="player.picture"
+                    size="medium">
+            </nb-user>
+            <div class="value">{{ player.value | currency:'EUR':'symbol':'1.0-0' }}</div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
+    <nb-card size="large">
+      <nb-card-header>
+        Dépenses de transfert par ligue
+      </nb-card-header>
+      <nb-card-body>
+        <div echarts [options]="transfersChartOptions" class="echart"></div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
+    <nb-card size="large">
+      <nb-card-header>
+        Événements à venir
+      </nb-card-header>
+      <nb-card-body>
+        <div class="events-list">
+          <div class="event-item" *ngFor="let event of upcomingEvents">
+            <div class="event-date">
+              <div class="day">{{ event.date | date:'dd' }}</div>
+              <div class="month">{{ event.date | date:'MMM' }}</div>
+            </div>
+            <div class="event-details">
+              <div class="event-title">{{ event.title }}</div>
+              <div class="event-location">
+                <nb-icon icon="pin-outline" pack="eva"></nb-icon>
+                <span>{{ event.location }}</span>
+              </div>
+            </div>
+            <button nbButton ghost size="small">
+              <nb-icon icon="calendar-outline" pack="eva"></nb-icon>
+              Détails
+            </button>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 </div>

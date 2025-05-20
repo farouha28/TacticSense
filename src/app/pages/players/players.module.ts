@@ -1,19 +1,44 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { 
+  NbCardModule, 
+  NbIconModule, 
+  NbInputModule, 
+  NbButtonModule, 
+  NbSelectModule,
+  NbSpinnerModule,
+  NbProgressBarModule,
+  NbPopoverModule,
+  NbDialogModule
+} from '@nebular/theme';
 
-import { PlayersRoutingModule } from './players-routing.module';
-import { PlayerListComponent } from './player-list/player-list.component';
-import { PlayerProfileComponent } from './player-profile/player-profile.component';
-
+import { PlayersListComponent } from './players-list/players-list.component';
 
 @NgModule({
   declarations: [
-    PlayerListComponent,
-    PlayerProfileComponent
+    PlayersListComponent
   ],
   imports: [
     CommonModule,
-    PlayersRoutingModule
+    FormsModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: PlayersListComponent
+      }
+    ]),
+    NbCardModule,
+    NbIconModule,
+    NbInputModule,
+    NbButtonModule,
+    NbSelectModule,
+    NbSpinnerModule,
+    NbProgressBarModule,
+    NbPopoverModule,
+    NbDialogModule.forChild()
   ]
 })
 export class PlayersModule { }
+

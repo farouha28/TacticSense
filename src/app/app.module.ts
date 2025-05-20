@@ -35,7 +35,7 @@ import {
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
     NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
+      messageGoogleMapKey: 'AIzaSyCpVhQiwAllg1RAFaxMWSpQruuGARy0Y1k',
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),

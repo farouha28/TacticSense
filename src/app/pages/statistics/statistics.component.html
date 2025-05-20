@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xxxl-12 col-xxl-12 col-lg-12">
+    <nb-card>
+      <nb-card-header>
+        <h2>Statistiques du football mondial</h2>
+      </nb-card-header>
+      <nb-card-body>
+        <p>
+          Explorez les données et tendances du marché du football professionnel. Ces graphiques présentent 
+          les dépenses de transfert, les valeurs des joueurs et les comparaisons entre les principales ligues.
+        </p>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
+    <nb-card size="large">
+      <nb-card-header>Dépenses de transfert par ligue (en millions €)</nb-card-header>
+      <nb-card-body>
+        <div echarts [options]="transfersChartOptions" class="echart"></div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
+    <nb-card size="large">
+      <nb-card-header>Top 10 des joueurs les plus valorisés (en millions €)</nb-card-header>
+      <nb-card-body>
+        <div echarts [options]="playerValueOptions" class="echart"></div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-12 col-xxl-12 col-lg-12">
+    <nb-card size="large">
+      <nb-card-header>Comparaison des revenus par ligue (indice sur 100)</nb-card-header>
+      <nb-card-body>
+        <div echarts [options]="leagueComparisonOptions" class="echart"></div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

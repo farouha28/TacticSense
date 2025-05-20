@@ -1,6 +1,15 @@
 @import '../../@theme/styles/themes';
+@import '../../@theme/styles/stakeholders';
 @import 'bootstrap/scss/mixins/breakpoints';
 @import '@nebular/theme/styles/global/breakpoints';
+
+// Variables de couleurs thème football
+$pitch-green: #2ecc71;
+$ball-white: #ffffff;
+$referee-black: #2c3e50;
+$team-blue: #3498db;
+$team-red: #e74c3c;
+$goal-gold: #f1c40f;
 
 @include nb-install-component() {
   .solar-card nb-card-header {
@@ -11,6 +20,355 @@
   @include media-breakpoint-down(sm) {
     ngx-traffic {
       display: none;
+    }
+  }
+  
+  // Styles communs pour les cartes
+  nb-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5rem;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    nb-card-header {
+      font-weight: bold;
+      border-bottom: none;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      
+      nb-icon {
+        margin-right: 0.75rem;
+        font-size: 1.5rem;
+      }
+    }
+    
+    nb-card-body {
+      padding: 1.25rem 1.5rem;
+    }
+    
+    nb-card-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid nb-theme(divider-color);
+      
+      button {
+        width: 100%;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+  
+  // Style pour la carte de bienvenue
+  .welcome-card {
+    background: linear-gradient(to right, rgba($pitch-green, 0.1), rgba($team-blue, 0.1));
+    
+    .welcome-content {
+      text-align: center;
+      padding: 1rem;
+      
+      h2 {
+        margin-bottom: 1rem;
+        color: var(--text-primary-color);
+      }
+      
+      p {
+        color: var(--text-basic-color);
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+// Styles pour les cartes de statistiques
+.stats-card {
+  display: flex;
+  align-items: center;
+
+  .icon {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+    color: inherit;
+    opacity: 0.8;
+  }
+
+  .info {
+    .value {
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .details {
+      color: nb-theme(text-hint-color);
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Styles pour les éléments de transfert
+.transfer-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 0;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: rgba(nb-theme(background-basic-color-2), 0.5);
+  }
+
+  .transfer-details {
+    flex: 1;
+    margin: 0 1rem;
+
+    .clubs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      
+      nb-icon {
+        color: nb-theme(text-hint-color);
+        font-size: 1rem;
+      }
+    }
+
+    .amount {
+      color: nb-theme(color-success-500);
+      font-weight: 600;
+    }
+  }
+
+  .date {
+    color: nb-theme(text-hint-color);
+    font-size: 0.875rem;
+  }
+}
+
+// Style pour les graphiques
+.echart {
+  width: 100%;
+  height: 300px;
+}
+
+// Styles pour les badges de position
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  
+  &.attaquant {
+    background-color: #ff3d71;
+  }
+  
+  &.milieu {
+    background-color: #00d68f;
+  }
+  
+  &.défenseur {
+    background-color: #0095ff;
+  }
+  
+  &.gardien {
+    background-color: #ffaa00;
+  }
+}
+
+// Styles pour les listes
+nb-list {
+  nb-list-item {
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: rgba(nb-theme(background-basic-color-2), 0.5);
+    }
+  }
+}
+
+// Styles pour les éléments de transfert
+.transfer-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 0;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: rgba(nb-theme(background-basic-color-2), 0.5);
+  }
+
+  .transfer-details {
+    flex: 1;
+    margin: 0 1rem;
+
+    .clubs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      
+      nb-icon {
+        color: nb-theme(text-hint-color);
+        font-size: 1rem;
+      }
+    }
+
+    .amount {
+      color: nb-theme(color-success-500);
+      font-weight: 600;
+    }
+  }
+
+  .date {
+    color: nb-theme(text-hint-color);
+    font-size: 0.875rem;
+  }
+}
+
+// Style pour les graphiques
+.echart {
+  width: 100%;
+  height: 300px;
+}
+
+// Styles pour les badges de position
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  
+  &.attaquant {
+    background-color: #ff3d71;
+  }
+  
+  &.milieu {
+    background-color: #00d68f;
+  }
+  
+  &.défenseur {
+    background-color: #0095ff;
+  }
+  
+  &.gardien {
+    background-color: #ffaa00;
+  }
+}
+
+// Styles pour les listes
+nb-list {
+  nb-list-item {
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: rgba(nb-theme(background-basic-color-2), 0.5);
+    }
+  }
+}
+
+// Styles pour les éléments de transfert
+.transfer-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem 0;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: rgba(nb-theme(background-basic-color-2), 0.5);
+  }
+
+  .transfer-details {
+    flex: 1;
+    margin: 0 1rem;
+
+    .clubs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      
+      nb-icon {
+        color: nb-theme(text-hint-color);
+        font-size: 1rem;
+      }
+    }
+
+    .amount {
+      color: nb-theme(color-success-500);
+      font-weight: 600;
+    }
+  }
+
+  .date {
+    color: nb-theme(text-hint-color);
+    font-size: 0.875rem;
+  }
+}
+
+// Style pour les graphiques
+.echart {
+  width: 100%;
+  height: 300px;
+}
+
+// Styles pour les badges de position
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  
+  &.attaquant {
+    background-color: #ff3d71;
+  }
+  
+  &.milieu {
+    background-color: #00d68f;
+  }
+  
+  &.défenseur {
+    background-color: #0095ff;
+  }
+  
+  &.gardien {
+    background-color: #ffaa00;
+  }
+}
+
+// Styles pour les listes
+nb-list {
+  nb-list-item {
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: rgba(nb-theme(background-basic-color-2), 0.5);
     }
   }
 }

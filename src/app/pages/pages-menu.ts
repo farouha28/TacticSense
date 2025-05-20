@@ -2,13 +2,13 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Accueil',
+    title: 'Dashboard',
     icon: 'home-outline',
     link: '/pages/dashboard',
     home: true,
   },
   {
-    title: 'FONCTIONNALITÉS',
+    title: 'STAKEHOLDERS',
     group: true,
   },
   {
@@ -18,13 +18,8 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Clubs',
-    icon: 'globe-2-outline',
+    icon: 'shield-outline',
     link: '/pages/clubs',
-  },
-  {
-    title: 'Entraîneurs',
-    icon: 'person-outline',
-    link: '/pages/coaches',
   },
   {
     title: 'Agents',
@@ -32,19 +27,45 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/agents',
   },
   {
-    title: 'Recruteurs',
-    icon: 'search-outline',
-    link: '/pages/scouts',
-  },
-  {
     title: 'Sponsors',
-    icon: 'star-outline',
+    icon: 'award-outline',
     link: '/pages/sponsors',
   },
   {
     title: 'Statistiques',
-    icon: 'bar-chart-outline',
-    link: '/pages/stats',
+    icon: 'pie-chart-outline',
+    link: '/pages/statistics',
+  },
+  {
+    title: 'FEATURES',
+    group: true,
+  },
+  {
+    title: 'Layout',
+    icon: 'layout-outline',
+    children: [
+      {
+        title: 'Stepper',
+        link: '/pages/layout/stepper',
+      },
+      {
+        title: 'List',
+        link: '/pages/layout/list',
+      },
+      {
+        title: 'Infinite List',
+        link: '/pages/layout/infinite-list',
+      },
+      {
+        title: 'Accordion',
+        link: '/pages/layout/accordion',
+      },
+      {
+        title: 'Tabs',
+        pathMatch: 'prefix',
+        link: '/pages/layout/tabs',
+      },
+    ],
   },
   {
     title: 'Paramètres',

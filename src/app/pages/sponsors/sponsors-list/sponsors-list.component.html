@@ -1,1 +1,111 @@
-<p>sponsors-list works!</p>
+<nb-card>
+  <nb-card-header>
+    <div class="header-container">
+      <h1>
+        <nb-icon icon="award-outline" pack="eva"></nb-icon>
+        Sponsors
+      </h1>
+      <div class="actions-container">
+        <button nbButton status="primary" size="medium">
+          <nb-icon icon="plus-outline" pack="eva"></nb-icon>
+          Ajouter un sponsor
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="filters-container">
+      <div class="filter-item search-container">
+        <label>Rechercher</label>
+        <input nbInput fullWidth placeholder="Nom du sponsor" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()">
+      </div>
+      
+      <div class="filter-item">
+        <label>Industrie</label>
+        <nb-select placeholder="Toutes les industries" [(ngModel)]="industryFilter" (selectedChange)="applyFilters()" fullWidth>
+          <nb-option value="">Toutes les industries</nb-option>
+          <nb-option value="Équipement sportif">Équipement sportif</nb-option>
+          <nb-option value="Transport aérien">Transport aérien</nb-option>
+          <nb-option value="Boissons">Boissons</nb-option>
+          <nb-option value="Finance">Finance</nb-option>
+        </nb-select>
+      </div>
+      
+      <div class="filter-item">
+        <label>Budget</label>
+        <nb-select placeholder="Tous les budgets" [(ngModel)]="budgetFilter" (selectedChange)="applyFilters()" fullWidth>
+          <nb-option value="">Tous les budgets</nb-option>
+          <nb-option value="high">Élevé</nb-option>
+          <nb-option value="medium">Moyen</nb-option>
+          <nb-option value="low">Faible</nb-option>
+        </nb-select>
+      </div>
+      
+      <div class="filter-item">
+        <label>Statut</label>
+        <nb-select placeholder="Tous les statuts" [(ngModel)]="statusFilter" (selectedChange)="applyFilters()" fullWidth>
+          <nb-option value="">Tous les statuts</nb-option>
+          <nb-option value="Active">Actif</nb-option>
+          <nb-option value="Pending">En attente</nb-option>
+          <nb-option value="Inactive">Inactif</nb-option>
+        </nb-select>
+      </div>
+      
+      <div class="filter-actions">
+        <button nbButton ghost (click)="resetFilters()">
+          <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
+          Réinitialiser
+        </button>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <nb-card *ngFor="let sponsor of filteredSponsors" class="stakeholder-card">
+        <nb-card-header>
+          <div class="card-header-container">
+            <h5>{{ sponsor.name }}</h5>
+            <div class="header-actions">
+              <button nbButton ghost size="small" class="action-button" (click)="showSponsorProfile(sponsor)">
+                <nb-icon icon="eye-outline" pack="eva"></nb-icon>
+              </button>
+            </div>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="sponsor-info">
+            <nb-user [name]="sponsor.name" [picture]="sponsor.logo" size="giant"></nb-user>
+            
+            <span class="status-badge" [ngClass]="sponsor.status.toLowerCase()">
+              {{ sponsor.status }}
+            </span>
+            
+            <div class="info-list">
+              <div class="info-item">
+                <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
+                <span>{{ sponsor.industry }}</span>
+              </div>
+              <div class="info-item">
+                <nb-icon icon="link-2-outline" pack="eva"></nb-icon>
+                <span>{{ sponsor.website }}</span>
+              </div>
+              <div class="info-item">
+                <nb-icon icon="handshake-outline" pack="eva"></nb-icon>
+                <span>{{ sponsor.partnerships }} partenariats</span>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+        <nb-card-footer>
+          <button nbButton fullWidth status="primary" size="small" (click)="showSponsorProfile(sponsor)">
+            Voir le profil
+          </button>
+        </nb-card-footer>
+      </nb-card>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+
+
+
+

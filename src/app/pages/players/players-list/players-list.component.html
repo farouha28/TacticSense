@@ -1,0 +1,162 @@
+<div class="players-container">
+  <div class="players-header">
+    <h1 class="title">Joueurs</h1>
+    <div class="search-actions">
+      <div class="search-box">
+        <input nbInput fullWidth placeholder="Rechercher un joueur..." [(ngModel)]="searchQuery" (ngModelChange)="filterPlayers()">
+        <nb-icon icon="search-outline" pack="eva"></nb-icon>
+      </div>
+      <button nbButton status="primary" class="models-button" [nbPopover]="aiModelsTemplate" nbPopoverPlacement="bottom">
+        <nb-icon icon="bulb-outline" pack="eva"></nb-icon>
+        MODÈLES IA
+      </button>
+    </div>
+  </div>
+
+  <div class="players-grid">
+    <div *ngFor="let player of filteredPlayers" class="player-card" (click)="openPlayerProfile(player)">
+      <div class="player-photo">
+        <img [src]="player.photo" [alt]="player.name">
+      </div>
+      <div class="player-info">
+        <h3 class="player-name">{{ player.name }}</h3>
+        <div class="player-position">{{ player.position }} · {{ player.age }} ans</div>
+        <div class="player-club">
+          <img [src]="player.club_logo" [alt]="player.club" class="club-logo">
+          {{ player.club }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Message si aucun joueur trouvé -->
+    <div *ngIf="filteredPlayers.length === 0 && !isLoading" class="no-results">
+      <nb-icon icon="alert-triangle-outline" pack="eva"></nb-icon>
+      <p>Aucun joueur ne correspond à votre recherche</p>
+    </div>
+    
+    <!-- Loader -->
+    <div *ngIf="isLoading" class="loader-container">
+      <nb-spinner></nb-spinner>
+    </div>
+  </div>
+</div>
+
+<!-- Template pour le popover des modèles IA -->
+<ng-template #aiModelsTemplate>
+  <div class="ai-models-popover">
+    <h6>Modèles d'analyse IA</h6>
+    <div class="models-list">
+      <button nbButton fullWidth status="primary" class="model-button" (click)="getRecommendations(recommendationTypes.FIT_SCORE)">
+        <nb-icon icon="checkmark-circle-outline" pack="eva"></nb-icon>
+        Compatibilité Tactique
+      </button>
+      
+      <button nbButton fullWidth status="info" class="model-button" (click)="getRecommendations(recommendationTypes.HIDDEN_VALUE)">
+        <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+        Valeur Cachée
+      </button>
+      
+      <div class="position-selector">
+        <button nbButton fullWidth status="warning" class="model-button" (click)="togglePositionSelect()">
+          <nb-icon icon="pin-outline" pack="eva"></nb-icon>
+          Analyse par Poste
+        </button>
+        
+        <nb-select *ngIf="showPositionSelect" placeholder="Sélectionner un poste" [(ngModel)]="selectedPosition" fullWidth (selectedChange)="onPositionSelected()">
+          <nb-option value="Gardien">Gardien</nb-option>
+          <nb-option value="Défenseur">Défenseur</nb-option>
+          <nb-option value="Milieu">Milieu</nb-option>
+          <nb-option value="Attaquant">Attaquant</nb-option>
+        </nb-select>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Template pour le profil du joueur -->
+<ng-template #playerProfileTemplate let-data>
+  <div class="player-profile">
+    <div class="profile-header">
+      <div class="player-avatar">
+        <img [src]="data.player.photo" [alt]="data.player.name">
+      </div>
+      <div class="player-header-info">
+        <h2>{{ data.player.name }}</h2>
+        <div class="player-nationality">{{ data.player.nationality }}</div>
+      </div>
+      <div class="compatibility-badge" *ngIf="data.player.compatibility">
+        <span>{{ data.player.compatibility }}</span>
+      </div>
+      <button class="close-button" nbButton ghost (click)="closeDialog()">
+        <nb-icon icon="close-outline" pack="eva"></nb-icon>
+      </button>
+    </div>
+
+    <div class="profile-content">
+      <div class="info-section">
+        <h3>Informations personnelles</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-label">Âge</div>
+            <div class="info-value">{{ data.player.age }} ans</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Nationalité</div>
+            <div class="info-value">{{ data.player.nationality }}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Club</div>
+            <div class="info-value">{{ data.player.club }}</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Position</div>
+            <div class="info-value">{{ data.player.position }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-section">
+        <h3>Statistiques</h3>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">{{ data.player.goals || 0 }}</div>
+            <div class="stat-label">Buts</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">{{ data.player.assists || 0 }}</div>
+            <div class="stat-label">Passes D.</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">{{ data.player.marketValue || 0 }}</div>
+            <div class="stat-label">M€</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compatibility-section" *ngIf="data.player.compatibility">
+        <h3>Compatibilité tactique</h3>
+        <div class="compatibility-score">
+          <div class="score-label">Score de compatibilité</div>
+          <div class="score-value">{{ data.player.compatibility }}/100</div>
+        </div>
+        <nb-progress-bar [value]="data.player.compatibility" status="primary" size="large"></nb-progress-bar>
+      </div>
+
+      <div class="attributes-section">
+        <h3>Attributs</h3>
+        <div class="attributes-grid">
+          <div *ngFor="let attr of data.player.attributes | keyvalue" class="attribute-item">
+            <div class="attribute-label">{{ attr.key }}</div>
+            <nb-progress-bar [value]="attr.value" [status]="getAttributeStatus(attr.value)"></nb-progress-bar>
+            <div class="attribute-value">{{ attr.value }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-footer">
+      <button nbButton status="primary" fullWidth>VOIR LE PROFIL COMPLET</button>
+    </div>
+  </div>
+</ng-template>
+

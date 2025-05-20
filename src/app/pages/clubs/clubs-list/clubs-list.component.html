@@ -1,1 +1,109 @@
-<p>clubs-list works!</p>
+<div class="header-container">
+  <h1>
+    <nb-icon icon="shield-outline" pack="eva"></nb-icon>
+    Clubs
+  </h1>
+  <div class="actions-container">
+    <button nbButton status="primary" size="medium">
+      <nb-icon icon="plus-outline" pack="eva"></nb-icon>
+      Ajouter un club
+    </button>
+  </div>
+</div>
+
+<div class="filters-container">
+  <div class="filter-item search-container">
+    <label>Rechercher</label>
+    <input nbInput fullWidth placeholder="Nom du club" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()">
+  </div>
+  
+  <div class="filter-item">
+    <label>Pays</label>
+    <nb-select placeholder="Tous les pays" [(ngModel)]="countryFilter" (selectedChange)="applyFilters()" fullWidth>
+      <nb-option value="">Tous les pays</nb-option>
+      <nb-option value="France">France</nb-option>
+      <nb-option value="Angleterre">Angleterre</nb-option>
+      <nb-option value="Espagne">Espagne</nb-option>
+      <nb-option value="Allemagne">Allemagne</nb-option>
+      <nb-option value="Italie">Italie</nb-option>
+    </nb-select>
+  </div>
+  
+  <div class="filter-item">
+    <label>Ligue</label>
+    <nb-select placeholder="Toutes les ligues" [(ngModel)]="leagueFilter" (selectedChange)="applyFilters()" fullWidth>
+      <nb-option value="">Toutes les ligues</nb-option>
+      <nb-option value="Ligue 1">Ligue 1</nb-option>
+      <nb-option value="Premier League">Premier League</nb-option>
+      <nb-option value="La Liga">La Liga</nb-option>
+      <nb-option value="Bundesliga">Bundesliga</nb-option>
+      <nb-option value="Serie A">Serie A</nb-option>
+    </nb-select>
+  </div>
+  
+  <div class="filter-item">
+    <label>Budget</label>
+    <nb-select placeholder="Tous les budgets" [(ngModel)]="budgetFilter" (selectedChange)="applyFilters()" fullWidth>
+      <nb-option value="">Tous les budgets</nb-option>
+      <nb-option value="high">Élevé</nb-option>
+      <nb-option value="medium">Moyen</nb-option>
+      <nb-option value="low">Faible</nb-option>
+    </nb-select>
+  </div>
+  
+  <div class="filter-actions">
+    <button nbButton ghost (click)="resetFilters()">
+      <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
+      Réinitialiser
+    </button>
+  </div>
+</div>
+
+<div class="cards-grid">
+  <nb-card *ngFor="let club of filteredClubs" class="stakeholder-card">
+    <nb-card-header>
+      <div class="card-header-container">
+        <h5>{{ club.name }}</h5>
+        <div class="header-actions">
+          <button nbButton ghost size="small" class="action-button" (click)="showClubProfile(club)">
+            <nb-icon icon="eye-outline" pack="eva"></nb-icon>
+          </button>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="club-info">
+        <nb-user [name]="club.name" [picture]="club.logo" size="giant"></nb-user>
+        
+        <span class="status-badge" [ngClass]="club.status.toLowerCase()">
+          {{ club.status }}
+        </span>
+        
+        <div class="info-list">
+          <div class="info-item">
+            <nb-icon icon="flag-outline" pack="eva"></nb-icon>
+            <span>{{ club.country }}</span>
+          </div>
+          <div class="info-item">
+            <nb-icon icon="award-outline" pack="eva"></nb-icon>
+            <span>{{ club.league }}</span>
+          </div>
+          <div class="info-item">
+            <nb-icon icon="people-outline" pack="eva"></nb-icon>
+            <span>{{ club.players }} joueurs</span>
+          </div>
+          <div class="info-item">
+            <nb-icon icon="trophy-outline" pack="eva"></nb-icon>
+            <span>{{ club.trophies }} trophées</span>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton fullWidth status="primary" size="small" (click)="showClubProfile(club)">
+        Voir le profil
+      </button>
+    </nb-card-footer>
+  </nb-card>
+</div>
+

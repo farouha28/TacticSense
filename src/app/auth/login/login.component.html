@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <h1>Connexion</h1>
+      </nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+          <div class="form-control-group">
+            <label class="label" for="input-email">Email:</label>
+            <input nbInput
+                   fullWidth
+                   id="input-email"
+                   formControlName="email"
+                   placeholder="Email"
+                   autofocus
+                   [status]="loginForm.get('email')?.dirty ? (loginForm.get('email')?.invalid ? 'danger' : 'success') : 'basic'">
+            <ng-container *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+              <p class="error-message" *ngIf="loginForm.get('email')?.errors?.['required']">
+                L'email est requis
+              </p>
+              <p class="error-message" *ngIf="loginForm.get('email')?.errors?.['email']">
+                Email invalide
+              </p>
+            </ng-container>
+          </div>
+          
+          <div class="form-control-group">
+            <label class="label" for="input-password">Mot de passe:</label>
+            <input nbInput
+                   fullWidth
+                   id="input-password"
+                   formControlName="password"
+                   type="password"
+                   placeholder="Mot de passe"
+                   [status]="loginForm.get('password')?.dirty ? (loginForm.get('password')?.invalid ? 'danger' : 'success') : 'basic'">
+            <ng-container *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+              <p class="error-message" *ngIf="loginForm.get('password')?.errors?.['required']">
+                Le mot de passe est requis
+              </p>
+            </ng-container>
+          </div>
+          
+          <div class="form-control-group accept-group">
+            <nb-checkbox formControlName="rememberMe">
+              Se souvenir de moi
+            </nb-checkbox>
+            <a class="forgot-password" routerLink="../request-password">Mot de passe oublié ?</a>
+          </div>
+          
+          <div class="alert-container">
+            <nb-alert status="danger" *ngIf="errorMessage">{{ errorMessage }}</nb-alert>
+          </div>
+          
+          <button nbButton
+                  fullWidth
+                  status="primary"
+                  [disabled]="loginForm.invalid || isLoading"
+                  [class.btn-pulse]="isLoading">
+            {{ isLoading ? 'Connexion en cours...' : 'Se connecter' }}
+          </button>
+        </form>
+        
+        <div class="links">
+          <span>Pas encore de compte ?</span>
+          <a routerLink="../register">S'inscrire</a>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

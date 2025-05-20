@@ -1,0 +1,408 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  .players-container {
+    padding: 0.5rem;
+  }
+
+  .players-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background-color: nb-theme(background-basic-color-1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    
+    .title {
+      margin: 0;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: nb-theme(text-basic-color);
+    }
+    
+    .search-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      
+      .search-box {
+        position: relative;
+        width: 300px;
+        
+        input {
+          padding-right: 2.5rem;
+          border-radius: 2rem;
+        }
+        
+        nb-icon {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: nb-theme(text-hint-color);
+        }
+      }
+      
+      .models-button {
+        border-radius: 2rem;
+        font-weight: 600;
+        
+        nb-icon {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    
+    .player-card {
+      display: flex;
+      background-color: nb-theme(background-basic-color-1);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: nb-theme(shadow);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: nb-theme(shadow-lg);
+      }
+      
+      .player-photo {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .player-info {
+        flex: 1;
+        padding: 1rem;
+        
+        .player-name {
+          margin: 0 0 0.25rem 0;
+          font-size: 1.25rem;
+          font-weight: 600;
+        }
+        
+        .player-position {
+          color: nb-theme(text-hint-color);
+          font-size: 0.875rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .player-club {
+          display: flex;
+          align-items: center;
+          font-size: 0.875rem;
+          
+          .club-logo {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+  }
+  
+  // Styles pour le message "aucun résultat"
+  .no-results {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background-color: nb-theme(background-basic-color-1);
+    border-radius: 0.75rem;
+    
+    nb-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: nb-theme(text-hint-color);
+    }
+    
+    p {
+      color: nb-theme(text-hint-color);
+      font-size: 1.25rem;
+    }
+  }
+  
+  // Styles pour le loader
+  .loader-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+  
+  // Styles pour le popover des modèles IA
+  .ai-models-popover {
+    padding: 1rem;
+    min-width: 250px;
+    
+    h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .models-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      
+      .model-button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.75rem;
+        
+        nb-icon {
+          margin-right: 0.75rem;
+        }
+      }
+      
+      .position-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  }
+  
+  // Styles pour le profil du joueur
+  .player-profile {
+    max-width: 600px;
+    background-color: nb-theme(background-basic-color-1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    
+    .profile-header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: nb-theme(color-primary-500);
+      color: white;
+      
+      .player-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid white;
+        margin-right: 1.5rem;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .player-header-info {
+        h2 {
+          margin: 0 0 0.25rem 0;
+          font-size: 1.75rem;
+          font-weight: 600;
+        }
+        
+        .player-nationality {
+          font-size: 1rem;
+        }
+      }
+      
+      .compatibility-badge {
+        position: absolute;
+        top: 1.5rem;
+        right: 3.5rem;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: nb-theme(color-success-500);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      
+      .close-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: white;
+      }
+    }
+    
+    .profile-content {
+      padding: 1.5rem;
+      
+      h3 {
+        color: nb-theme(text-basic-color);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+        
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+      
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        
+        .info-item {
+          .info-label {
+            color: nb-theme(text-hint-color);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+          }
+          
+          .info-value {
+            font-weight: 600;
+          }
+        }
+      }
+      
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        
+        .stat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background-color: nb-theme(background-basic-color-2);
+          border-radius: 0.5rem;
+          padding: 1rem;
+          
+          .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: nb-theme(color-primary-500);
+          }
+          
+          .stat-label {
+            font-size: 0.875rem;
+            color: nb-theme(text-hint-color);
+          }
+        }
+      }
+      
+      .compatibility-section {
+        .compatibility-score {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0.5rem;
+          
+          .score-value {
+            font-weight: 600;
+          }
+        }
+        
+        nb-progress-bar {
+          height: 10px;
+          border-radius: 5px;
+        }
+      }
+      
+      .attributes-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        
+        .attribute-item {
+          display: flex;
+          flex-direction: column;
+          
+          .attribute-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+          }
+          
+          nb-progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 0.25rem;
+          }
+          
+          .attribute-value {
+            align-self: flex-end;
+            font-size: 0.875rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    
+    .profile-footer {
+      padding: 1.5rem;
+      border-top: 1px solid nb-theme(border-basic-color-3);
+      
+      button {
+        font-weight: 600;
+        padding: 0.75rem;
+      }
+    }
+  }
+}
+
+// Ajustements pour les sections internes
+.profile-section {
+  h4 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .stats-grid {
+    .stat-circle {
+      .stat-value {
+        width: 3.5rem !important; // Plus petit pour s'adapter au carré
+        height: 3.5rem !important;
+        font-size: 1.25rem !important;
+      }
+    }
+  }
+  
+  .progress-container {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+// Assurez-vous que ces styles sont ajoutés à vos styles existants
+
+
+
+
+
+
+
+
+
+
+
+
+
+

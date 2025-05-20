@@ -1,0 +1,440 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        <h1>Inscription</h1>
+      </nb-card-header>
+      <nb-card-body>
+        <nb-stepper orientation="horizontal">
+          <!-- Étape 1: Informations de base -->
+          <nb-step label="Informations de base">
+            <form [formGroup]="registerForm" class="step-container">
+              <div class="form-control-group">
+                <label class="label" for="input-email">Email:</label>
+                <input nbInput
+                       fullWidth
+                       id="input-email"
+                       formControlName="email"
+                       placeholder="Email"
+                       autofocus
+                       [status]="registerForm.get('email')?.dirty ? (registerForm.get('email')?.invalid ? 'danger' : 'success') : 'basic'">
+                <ng-container *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                  <p class="error-message" *ngIf="registerForm.get('email')?.errors?.['required']">
+                    L'email est requis
+                  </p>
+                  <p class="error-message" *ngIf="registerForm.get('email')?.errors?.['email']">
+                    Email invalide
+                  </p>
+                </ng-container>
+              </div>
+              
+              <div class="form-control-group">
+                <label class="label" for="input-password">Mot de passe:</label>
+                <input nbInput
+                       fullWidth
+                       id="input-password"
+                       formControlName="password"
+                       type="password"
+                       placeholder="Mot de passe"
+                       [status]="registerForm.get('password')?.dirty ? (registerForm.get('password')?.invalid ? 'danger' : 'success') : 'basic'">
+                <ng-container *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                  <p class="error-message" *ngIf="registerForm.get('password')?.errors?.['required']">
+                    Le mot de passe est requis
+                  </p>
+                  <p class="error-message" *ngIf="registerForm.get('password')?.errors?.['minlength']">
+                    Le mot de passe doit contenir au moins 6 caractères
+                  </p>
+                </ng-container>
+              </div>
+              
+              <div class="form-control-group">
+                <label class="label" for="input-confirm-password">Confirmer le mot de passe:</label>
+                <input nbInput
+                       fullWidth
+                       id="input-confirm-password"
+                       formControlName="confirmPassword"
+                       type="password"
+                       placeholder="Confirmer le mot de passe"
+                       [status]="registerForm.get('confirmPassword')?.dirty ? (registerForm.hasError('mismatch') ? 'danger' : 'success') : 'basic'">
+                <ng-container *ngIf="registerForm.get('confirmPassword')?.touched">
+                  <p class="error-message" *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">
+                    La confirmation du mot de passe est requise
+                  </p>
+                  <p class="error-message" *ngIf="registerForm.hasError('mismatch')">
+                    Les mots de passe ne correspondent pas
+                  </p>
+                </ng-container>
+              </div>
+              
+              <div class="form-control-group">
+                <label class="label" for="input-role">Rôle:</label>
+                <nb-select fullWidth placeholder="Sélectionnez votre rôle" formControlName="role" id="input-role">
+                  <nb-option *ngFor="let role of userRoles" [value]="role.value">{{ role.label }}</nb-option>
+                </nb-select>
+                <ng-container *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched">
+                  <p class="error-message" *ngIf="registerForm.get('role')?.errors?.['required']">
+                    Le rôle est requis
+                  </p>
+                </ng-container>
+              </div>
+              
+              <button nbButton
+                      status="primary"
+                      [disabled]="registerForm.invalid || !selectedRole"
+                      nbStepperNext>
+                Suivant
+              </button>
+            </form>
+          </nb-step>
+          
+          <!-- Étape 2: Informations spécifiques au rôle -->
+          <nb-step label="Informations spécifiques">
+            <form [formGroup]="roleSpecificForm" class="step-container">
+              <!-- Champs communs à tous les rôles -->
+              <div class="form-control-group">
+                <label class="label" for="input-full-name">Nom complet:</label>
+                <div class="input-with-badge">
+                  <input nbInput
+                         fullWidth
+                         id="input-full-name"
+                         formControlName="full_name"
+                         placeholder="Nom complet"
+                         [status]="roleSpecificForm.get('full_name')?.dirty ? (roleSpecificForm.get('full_name')?.invalid ? 'danger' : 'success') : 'basic'">
+                  <nb-badge *ngIf="isFieldAutoFilled('full_name')" text="Auto" status="info" position="top right"></nb-badge>
+                </div>
+                <ng-container *ngIf="roleSpecificForm.get('full_name')?.invalid && roleSpecificForm.get('full_name')?.touched">
+                  <p class="error-message" *ngIf="roleSpecificForm.get('full_name')?.errors?.['required']">
+                    Le nom complet est requis
+                  </p>
+                </ng-container>
+              </div>
+              
+              <div class="form-control-group">
+                <label class="label" for="input-age">Âge:</label>
+                <div class="input-with-badge">
+                  <input nbInput
+                         fullWidth
+                         id="input-age"
+                         formControlName="age"
+                         type="number"
+                         min="16"
+                         max="100"
+                         placeholder="Âge"
+                         [status]="roleSpecificForm.get('age')?.dirty ? (roleSpecificForm.get('age')?.invalid ? 'danger' : 'success') : 'basic'">
+                  <nb-badge *ngIf="isFieldAutoFilled('age')" text="Auto" status="info" position="top right"></nb-badge>
+                </div>
+                <ng-container *ngIf="roleSpecificForm.get('age')?.invalid && roleSpecificForm.get('age')?.touched">
+                  <p class="error-message" *ngIf="roleSpecificForm.get('age')?.errors?.['required']">
+                    L'âge est requis
+                  </p>
+                  <p class="error-message" *ngIf="roleSpecificForm.get('age')?.errors?.['min'] || roleSpecificForm.get('age')?.errors?.['max']">
+                    L'âge doit être compris entre 16 et 100 ans
+                  </p>
+                </ng-container>
+              </div>
+              
+              <!-- Champs spécifiques au rôle Joueur -->
+              <ng-container *ngIf="selectedRole === 'player'">
+                <div class="form-control-group">
+                  <label class="label" for="input-position">Position:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-position"
+                           formControlName="position"
+                           placeholder="Position (ex: Attaquant, Milieu, Défenseur)"
+                           [status]="roleSpecificForm.get('position')?.dirty ? (roleSpecificForm.get('position')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('position')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-league">Ligue:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-league"
+                           formControlName="league"
+                           placeholder="Ligue (ex: Ligue 1, Premier League)"
+                           [status]="roleSpecificForm.get('league')?.dirty ? (roleSpecificForm.get('league')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('league')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-club">Club actuel:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-club"
+                           formControlName="current_club"
+                           placeholder="Club actuel"
+                           [status]="roleSpecificForm.get('current_club')?.dirty ? (roleSpecificForm.get('current_club')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('current_club')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-appearances">Nombre de matchs joués:</label>
+                  <input nbInput
+                         fullWidth
+                         id="input-appearances"
+                         formControlName="appearances_overall"
+                         type="number"
+                         min="0"
+                         placeholder="Nombre de matchs joués"
+                         [status]="roleSpecificForm.get('appearances_overall')?.dirty ? (roleSpecificForm.get('appearances_overall')?.invalid ? 'danger' : 'success') : 'basic'">
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-salary">Salaire annuel (EUR):</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-salary"
+                           formControlName="annual_salary_eur"
+                           type="number"
+                           min="0"
+                           placeholder="Salaire annuel en euros"
+                           [status]="roleSpecificForm.get('annual_salary_eur')?.dirty ? (roleSpecificForm.get('annual_salary_eur')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('annual_salary_eur')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+              </ng-container>
+              
+              <!-- Champs spécifiques au rôle Entraîneur -->
+              <ng-container *ngIf="selectedRole === 'coach'">
+                <div class="form-control-group">
+                  <label class="label" for="input-experience">Années d'expérience:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-experience"
+                           formControlName="experience_years"
+                           type="number"
+                           min="0"
+                           placeholder="Années d'expérience"
+                           [status]="roleSpecificForm.get('experience_years')?.dirty ? (roleSpecificForm.get('experience_years')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('experience_years')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-teams">Équipes entraînées:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-teams"
+                           formControlName="teams_coached"
+                           placeholder="Équipes entraînées (séparées par des virgules)"
+                           [status]="roleSpecificForm.get('teams_coached')?.dirty ? (roleSpecificForm.get('teams_coached')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('teams_coached')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-specialty">Spécialité:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-specialty"
+                           formControlName="specialty"
+                           placeholder="Spécialité (ex: Défense, Attaque, Formation)"
+                           [status]="roleSpecificForm.get('specialty')?.dirty ? (roleSpecificForm.get('specialty')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('specialty')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+              </ng-container>
+              
+              <!-- Champs spécifiques au rôle Agent -->
+              <ng-container *ngIf="selectedRole === 'agent'">
+                <div class="form-control-group">
+                  <label class="label" for="input-agency">Nom de l'agence:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-agency"
+                           formControlName="agency_name"
+                           placeholder="Nom de l'agence"
+                           [status]="roleSpecificForm.get('agency_name')?.dirty ? (roleSpecificForm.get('agency_name')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('agency_name')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-clients">Nombre de clients:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-clients"
+                           formControlName="clients_number"
+                           type="number"
+                           min="0"
+                           placeholder="Nombre de clients"
+                           [status]="roleSpecificForm.get('clients_number')?.dirty ? (roleSpecificForm.get('clients_number')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('clients_number')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-certification">Numéro de certification:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-certification"
+                           formControlName="certification_number"
+                           placeholder="Numéro de certification"
+                           [status]="roleSpecificForm.get('certification_number')?.dirty ? (roleSpecificForm.get('certification_number')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('certification_number')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+              </ng-container>
+              
+              <!-- Champs spécifiques au rôle Recruteur -->
+              <ng-container *ngIf="selectedRole === 'recruiter'">
+                <div class="form-control-group">
+                  <label class="label" for="input-organization">Organisation:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-organization"
+                           formControlName="organization"
+                           placeholder="Organisation (ex: Club, Académie)"
+                           [status]="roleSpecificForm.get('organization')?.dirty ? (roleSpecificForm.get('organization')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('organization')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-region">Région de recrutement:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-region"
+                           formControlName="region"
+                           placeholder="Région de recrutement"
+                           [status]="roleSpecificForm.get('region')?.dirty ? (roleSpecificForm.get('region')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('region')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-target-positions">Postes recherchés:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-target-positions"
+                           formControlName="target_positions"
+                           placeholder="Postes recherchés (séparés par des virgules)"
+                           [status]="roleSpecificForm.get('target_positions')?.dirty ? (roleSpecificForm.get('target_positions')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('target_positions')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+              </ng-container>
+              
+              <!-- Champs spécifiques au rôle Sponsor -->
+              <ng-container *ngIf="selectedRole === 'sponsor'">
+                <div class="form-control-group">
+                  <label class="label" for="input-company">Entreprise:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-company"
+                           formControlName="company"
+                           placeholder="Nom de l'entreprise"
+                           [status]="roleSpecificForm.get('company')?.dirty ? (roleSpecificForm.get('company')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('company')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-investment">Fourchette d'investissement:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-investment"
+                           formControlName="investment_range"
+                           placeholder="Fourchette d'investissement (ex: 10K-50K EUR)"
+                           [status]="roleSpecificForm.get('investment_range')?.dirty ? (roleSpecificForm.get('investment_range')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('investment_range')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+                
+                <div class="form-control-group">
+                  <label class="label" for="input-interested">Intéressé par:</label>
+                  <div class="input-with-badge">
+                    <input nbInput
+                           fullWidth
+                           id="input-interested"
+                           formControlName="interested_in"
+                           placeholder="Intéressé par (ex: Clubs, Joueurs, Événements)"
+                           [status]="roleSpecificForm.get('interested_in')?.dirty ? (roleSpecificForm.get('interested_in')?.invalid ? 'danger' : 'success') : 'basic'">
+                    <nb-badge *ngIf="isFieldAutoFilled('interested_in')" text="Auto" status="info" position="top right"></nb-badge>
+                  </div>
+                </div>
+              </ng-container>
+              
+              <!-- Analyse de texte pour tous les rôles -->
+              <div class="form-control-group">
+                <label class="label">Décrivez-vous (nous analyserons votre texte):</label>
+                <textarea nbInput
+                          fullWidth
+                          rows="5"
+                          placeholder="Exemple: Je m'appelle Jean Dupont, j'ai 28 ans et je suis attaquant en Ligue 1. Je joue pour le PSG..."
+                          [(ngModel)]="bioText"
+                          [ngModelOptions]="{standalone: true}"></textarea>
+                <button nbButton
+                        status="info"
+                        size="small"
+                        [disabled]="!bioText.trim() || isAnalyzing"
+                        (click)="analyzeText()"
+                        style="margin-top: 0.5rem;">
+                  <nb-icon icon="search-outline"></nb-icon>
+                  {{ isAnalyzing ? 'Analyse en cours...' : 'Analyser le texte' }}
+                </button>
+              </div>
+              
+              <!-- Upload de certificat pour les agents -->
+              <div class="certificate-upload" *ngIf="selectedRole === 'agent'">
+                <label class="label">Certificat d'agent (PDF uniquement):</label>
+                <div class="file-input">
+                  <input type="file" 
+                         accept=".pdf" 
+                         (change)="onFileChange($event)">
+                </div>
+                <div class="certificate-status" *ngIf="certificateUploaded">
+                  <nb-icon [icon]="certificateValid ? 'checkmark-circle-2-outline' : 'close-circle-outline'" 
+                           [status]="certificateValid ? 'success' : 'danger'">
+                  </nb-icon>
+                  <span>{{ certificateValid ? 'Certificat valide' : 'Format de fichier non valide (PDF requis)' }}</span>
+                </div>
+              </div>
+              
+              <div class="alert-container">
+                <nb-alert status="danger" *ngIf="errorMessage">{{ errorMessage }}</nb-alert>
+                <nb-alert status="success" *ngIf="successMessage">{{ successMessage }}</nb-alert>
+              </div>
+              
+              <div class="form-buttons">
+                <button nbButton status="basic" nbStepperPrevious>Précédent</button>
+                <button nbButton 
+                        status="primary" 
+                        [disabled]="roleSpecificForm.invalid || isLoading || (selectedRole === 'agent' && !certificateValid)"
+                        (click)="onSubmit()">
+                  {{ isLoading ? 'Inscription en cours...' : 'S\'inscrire' }}
+                </button>
+              </div>
+            </form>
+          </nb-step>
+        </nb-stepper>
+        
+        <div class="links">
+          <a routerLink="../login">Déjà inscrit ? Connectez-vous</a>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+
+

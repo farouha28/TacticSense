@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
-
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'ngx-header',
@@ -38,23 +38,39 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profil' }, { title: 'Déconnexion' } ];
+  languages = [
+    { value: 'fr', name: 'Français', flag: '🇫🇷' },
+    { value: 'en', name: 'English', flag: '🇬🇧' }
+  ];
+
+  currentLanguage = 'fr';
+
+  userMenu = [
+    { title: 'Profile', data: { id: 'profile' } },
+    { title: 'Logout', data: { id: 'logout' } }
+  ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private themeService: NbThemeService,
               private userService: UserData,
               private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+              private breakpointService: NbMediaBreakpointsService,
+              private translateService: TranslateService) {
   }
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
+    // Initialize translation
+    this.translateService.setDefaultLang('fr');
+    this.translateService.use('fr');
+    this.currentLanguage = 'fr';
+
     // Remplacer les données utilisateur par Farah
     this.user = {
       name: 'Farah Ben Nasr',
-      picture: 'assets/images/farah.png', // Assurez-vous d'ajouter cette image
+      picture: 'assets/images/farah.png',
     };
 
     const { xl } = this.breakpointService.getBreakpointsMap();
@@ -64,13 +80,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe((isLessThanXl: boolean) => this.userPictureOnly = isLessThanXl);
-
-    this.themeService.onThemeChange()
-      .pipe(
-        map(({ name }) => name),
-        takeUntil(this.destroy$),
-      )
-      .subscribe(themeName => this.currentTheme = themeName);
   }
 
   ngOnDestroy() {
@@ -80,6 +89,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
+  }
+
+  changeLanguage(languageCode: string) {
+    this.translateService.use(languageCode);
+    this.currentLanguage = languageCode;
   }
 
   toggleSidebar(): boolean {

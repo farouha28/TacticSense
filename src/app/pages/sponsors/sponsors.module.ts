@@ -1,32 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { 
   NbCardModule, 
   NbIconModule, 
   NbInputModule, 
-  NbButtonModule, 
-  NbSelectModule, 
-  NbUserModule,
-  NbDialogModule,
+  NbButtonModule,
+  NbSelectModule,
+  NbSpinnerModule,
+  NbBadgeModule,
+  NbListModule,
+  NbTagModule
 } from '@nebular/theme';
 
-import { ThemeModule } from '../../@theme/theme.module';
 import { SponsorsListComponent } from './sponsors-list/sponsors-list.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ThemeModule,
+    ReactiveFormsModule,
     NbCardModule,
     NbIconModule,
     NbInputModule,
     NbButtonModule,
     NbSelectModule,
-    NbUserModule,
-    NbDialogModule.forChild(),
+    NbSpinnerModule,
+    NbBadgeModule,
+    NbListModule,
+    NbTagModule,
     RouterModule.forChild([
       {
         path: '',
@@ -39,5 +42,4 @@ import { SponsorsListComponent } from './sponsors-list/sponsors-list.component';
   ],
 })
 export class SponsorsModule { }
-
 

@@ -1,0 +1,9 @@
+<div class="language-selector">
+  <button nbButton ghost [nbContextMenu]="languageMenu" nbContextMenuTag="language-menu">
+    <span class="flag">{{ getCurrentLanguageFlag() }}</span>
+  </button>
+</div>
+
+<ng-template #languageMenu>
+  <nb-menu [items]="languages | languageMenuItems" (itemClick)="changeLanguage($event.item.code)"></nb-menu>
+</ng-template>

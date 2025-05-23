@@ -1,109 +1,131 @@
-<div class="header-container">
-  <h1>
-    <nb-icon icon="shield-outline" pack="eva"></nb-icon>
-    Clubs
-  </h1>
-  <div class="actions-container">
-    <button nbButton status="primary" size="medium">
-      <nb-icon icon="plus-outline" pack="eva"></nb-icon>
-      Ajouter un club
-    </button>
-  </div>
-</div>
-
-<div class="filters-container">
-  <div class="filter-item search-container">
-    <label>Rechercher</label>
-    <input nbInput fullWidth placeholder="Nom du club" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()">
-  </div>
+<nb-card>
+  <nb-card-header>
+    <div class="header-container">
+      <h2>Clubs</h2>
+      <p>Découvrez les clubs de football professionnels</p>
+    </div>
+  </nb-card-header>
   
-  <div class="filter-item">
-    <label>Pays</label>
-    <nb-select placeholder="Tous les pays" [(ngModel)]="countryFilter" (selectedChange)="applyFilters()" fullWidth>
-      <nb-option value="">Tous les pays</nb-option>
-      <nb-option value="France">France</nb-option>
-      <nb-option value="Angleterre">Angleterre</nb-option>
-      <nb-option value="Espagne">Espagne</nb-option>
-      <nb-option value="Allemagne">Allemagne</nb-option>
-      <nb-option value="Italie">Italie</nb-option>
-    </nb-select>
-  </div>
-  
-  <div class="filter-item">
-    <label>Ligue</label>
-    <nb-select placeholder="Toutes les ligues" [(ngModel)]="leagueFilter" (selectedChange)="applyFilters()" fullWidth>
-      <nb-option value="">Toutes les ligues</nb-option>
-      <nb-option value="Ligue 1">Ligue 1</nb-option>
-      <nb-option value="Premier League">Premier League</nb-option>
-      <nb-option value="La Liga">La Liga</nb-option>
-      <nb-option value="Bundesliga">Bundesliga</nb-option>
-      <nb-option value="Serie A">Serie A</nb-option>
-    </nb-select>
-  </div>
-  
-  <div class="filter-item">
-    <label>Budget</label>
-    <nb-select placeholder="Tous les budgets" [(ngModel)]="budgetFilter" (selectedChange)="applyFilters()" fullWidth>
-      <nb-option value="">Tous les budgets</nb-option>
-      <nb-option value="high">Élevé</nb-option>
-      <nb-option value="medium">Moyen</nb-option>
-      <nb-option value="low">Faible</nb-option>
-    </nb-select>
-  </div>
-  
-  <div class="filter-actions">
-    <button nbButton ghost (click)="resetFilters()">
-      <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
-      Réinitialiser
-    </button>
-  </div>
-</div>
-
-<div class="cards-grid">
-  <nb-card *ngFor="let club of filteredClubs" class="stakeholder-card">
-    <nb-card-header>
-      <div class="card-header-container">
-        <h5>{{ club.name }}</h5>
-        <div class="header-actions">
-          <button nbButton ghost size="small" class="action-button" (click)="showClubProfile(club)">
-            <nb-icon icon="eye-outline" pack="eva"></nb-icon>
-          </button>
+  <nb-card-body>
+    <div class="filters-container">
+      <div class="search-container">
+        <div class="input-with-icon">
+          <nb-icon class="search-icon" icon="search-outline" pack="eva"></nb-icon>
+          <input 
+            nbInput 
+            fullWidth 
+            placeholder="Rechercher un club..." 
+            [(ngModel)]="searchQuery"
+            (ngModelChange)="onSearchChange()">
         </div>
       </div>
-    </nb-card-header>
-    <nb-card-body>
-      <div class="club-info">
-        <nb-user [name]="club.name" [picture]="club.logo" size="giant"></nb-user>
+      
+      <div class="country-filter">
+        <nb-select placeholder="Pays" [(selected)]="countryFilter" (selectedChange)="onCountryChange()">
+          <nb-option value="all">Tous les pays</nb-option>
+          <nb-option *ngFor="let country of countries | slice:1" [value]="country">
+            {{ country }}
+          </nb-option>
+        </nb-select>
+      </div>
+    </div>
+    
+    <div *ngIf="isLoading" class="loading-container">
+      <nb-spinner status="primary"></nb-spinner>
+      <p>Chargement des clubs...</p>
+    </div>
+    
+    <div *ngIf="!isLoading && filteredClubs.length === 0" class="no-results">
+      <nb-icon icon="alert-circle-outline" pack="eva"></nb-icon>
+      <p>Aucun club ne correspond à vos critères</p>
+    </div>
+    
+    <div *ngIf="!isLoading && filteredClubs.length > 0" class="clubs-grid">
+      <div *ngFor="let club of filteredClubs" class="club-card">
+        <div class="club-header">
+          <span class="country-badge">{{ club.country }}</span>
+          <span class="league">{{ club.league }}</span>
+        </div>
         
-        <span class="status-badge" [ngClass]="club.status.toLowerCase()">
-          {{ club.status }}
-        </span>
+        <div class="club-logo">
+          <img [src]="club.logo" [alt]="club.name" onerror="this.src='assets/images/placeholder-club.png'">
+        </div>
         
-        <div class="info-list">
-          <div class="info-item">
-            <nb-icon icon="flag-outline" pack="eva"></nb-icon>
-            <span>{{ club.country }}</span>
+        <div class="club-info">
+          <h4>{{ club.name }}</h4>
+          <div class="club-details">
+            <div class="detail-item">
+              <nb-icon icon="pin-outline" pack="eva"></nb-icon>
+              <span>{{ club.city }}, {{ club.country }}</span>
+            </div>
+            <div class="detail-item">
+              <nb-icon icon="calendar-outline" pack="eva"></nb-icon>
+              <span>Fondé en {{ club.founded }}</span>
+            </div>
+            <div class="detail-item">
+              <nb-icon icon="home-outline" pack="eva"></nb-icon>
+              <span>{{ club.stadium }} ({{ club.stadiumCapacity }} places)</span>
+            </div>
           </div>
-          <div class="info-item">
-            <nb-icon icon="award-outline" pack="eva"></nb-icon>
-            <span>{{ club.league }}</span>
+          
+          <div class="club-value">
+            <span class="label">Valeur estimée:</span>
+            <span class="value">{{ club.marketValue }} M€</span>
           </div>
-          <div class="info-item">
-            <nb-icon icon="people-outline" pack="eva"></nb-icon>
-            <span>{{ club.players }} joueurs</span>
+          
+          <div class="trophies-section">
+            <h6>Palmarès:</h6>
+            <div class="trophies-grid">
+              <div class="trophy-item">
+                <div class="trophy-count">{{ club.trophies.league }}</div>
+                <div class="trophy-label">Championnats</div>
+              </div>
+              <div class="trophy-item">
+                <div class="trophy-count">{{ club.trophies.national }}</div>
+                <div class="trophy-label">Coupes nationales</div>
+              </div>
+              <div class="trophy-item">
+                <div class="trophy-count">{{ club.trophies.international }}</div>
+                <div class="trophy-label">Coupes internationales</div>
+              </div>
+            </div>
           </div>
-          <div class="info-item">
-            <nb-icon icon="trophy-outline" pack="eva"></nb-icon>
-            <span>{{ club.trophies }} trophées</span>
+          
+          <div class="stats-section">
+            <h6>Statistiques saison en cours:</h6>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value wins">{{ club.stats.wins }}</div>
+                <div class="stat-label">Victoires</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value draws">{{ club.stats.draws }}</div>
+                <div class="stat-label">Nuls</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value losses">{{ club.stats.losses }}</div>
+                <div class="stat-label">Défaites</div>
+              </div>
+            </div>
+            <div class="goals-stats">
+              <div class="goals-for">
+                <span class="label">Buts marqués:</span>
+                <span class="value">{{ club.stats.goalsFor }}</span>
+              </div>
+              <div class="goals-against">
+                <span class="label">Buts encaissés:</span>
+                <span class="value">{{ club.stats.goalsAgainst }}</span>
+              </div>
+            </div>
           </div>
         </div>
+        
+        <div class="club-footer">
+          <button nbButton status="primary" size="small">Voir profil</button>
+          <button nbButton status="info" size="small" ghost>Contacter</button>
+        </div>
       </div>
-    </nb-card-body>
-    <nb-card-footer>
-      <button nbButton fullWidth status="primary" size="small" (click)="showClubProfile(club)">
-        Voir le profil
-      </button>
-    </nb-card-footer>
-  </nb-card>
-</div>
+    </div>
+  </nb-card-body>
+</nb-card>
 

@@ -1,0 +1,233 @@
+[
+  {
+    "id": 1,
+    "name": "Nike",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png",
+    "industry": "Sportswear",
+    "country": "United States",
+    "founded": 1964,
+    "headquarters": "Beaverton, Oregon",
+    "revenue": 46710000000,
+    "marketCap": 200000000000,
+    "sponsorshipBudget": 3500000000,
+    "type": "Equipment Sponsor",
+    "partnerships": [
+      {
+        "entity": "Paris Saint-Germain",
+        "type": "Club",
+        "value": 80000000,
+        "duration": "2019-2032",
+        "category": "Kit Sponsor"
+      },
+      {
+        "entity": "Kylian Mbappé",
+        "type": "Player",
+        "value": 20000000,
+        "duration": "2019-2029",
+        "category": "Individual"
+      },
+      {
+        "entity": "Liverpool FC",
+        "type": "Club",
+        "value": 30000000,
+        "duration": "2020-2025",
+        "category": "Kit Sponsor"
+      }
+    ],
+    "totalPartnerships": 45,
+    "topSports": ["Football", "Basketball", "Tennis", "Running"],
+    "globalPresence": 190,
+    "employees": 75400,
+    "sustainability": {
+      "rating": "B+",
+      "initiatives": ["Move to Zero", "Circular Design", "Renewable Energy"]
+    },
+    "contactInfo": {
+      "email": "partnerships@nike.com",
+      "phone": "+1 503 671 6453",
+      "website": "www.nike.com"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Adidas",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/04/Adidas-Logo.png",
+    "industry": "Sportswear",
+    "country": "Germany",
+    "founded": 1949,
+    "headquarters": "Herzogenaurach, Germany",
+    "revenue": 22315000000,
+    "marketCap": 45000000000,
+    "sponsorshipBudget": 2800000000,
+    "type": "Equipment Sponsor",
+    "partnerships": [
+      {
+        "entity": "Real Madrid",
+        "type": "Club",
+        "value": 120000000,
+        "duration": "2020-2030",
+        "category": "Kit Sponsor"
+      },
+      {
+        "entity": "Lionel Messi",
+        "type": "Player",
+        "value": 25000000,
+        "duration": "2006-2031",
+        "category": "Individual"
+      },
+      {
+        "entity": "Bayern Munich",
+        "type": "Club",
+        "value": 60000000,
+        "duration": "2020-2030",
+        "category": "Kit Sponsor"
+      }
+    ],
+    "totalPartnerships": 38,
+    "topSports": ["Football", "Basketball", "Tennis", "Golf"],
+    "globalPresence": 160,
+    "employees": 62285,
+    "sustainability": {
+      "rating": "A-",
+      "initiatives": ["End Plastic Waste", "Carbon Neutral", "Sustainable Materials"]
+    },
+    "contactInfo": {
+      "email": "sponsorship@adidas.com",
+      "phone": "+49 9132 84 0",
+      "website": "www.adidas.com"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Emirates",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/03/Emirates-Logo.png",
+    "industry": "Aviation",
+    "country": "United Arab Emirates",
+    "founded": 1985,
+    "headquarters": "Dubai, UAE",
+    "revenue": 16200000000,
+    "marketCap": 25000000000,
+    "sponsorshipBudget": 500000000,
+    "type": "Stadium & Shirt Sponsor",
+    "partnerships": [
+      {
+        "entity": "Arsenal FC",
+        "type": "Club",
+        "value": 40000000,
+        "duration": "2006-2024",
+        "category": "Stadium Naming Rights"
+      },
+      {
+        "entity": "Real Madrid",
+        "type": "Club",
+        "value": 70000000,
+        "duration": "2013-2026",
+        "category": "Shirt Sponsor"
+      },
+      {
+        "entity": "AC Milan",
+        "type": "Club",
+        "value": 30000000,
+        "duration": "2020-2023",
+        "category": "Shirt Sponsor"
+      }
+    ],
+    "totalPartnerships": 12,
+    "topSports": ["Football", "Tennis", "Golf", "Rugby"],
+    "globalPresence": 85,
+    "employees": 105000,
+    "sustainability": {
+      "rating": "B",
+      "initiatives": ["Fuel Efficiency", "Wildlife Protection", "Community Investment"]
+    },
+    "contactInfo": {
+      "email": "sponsorship@emirates.com",
+      "phone": "+971 4 214 4444",
+      "website": "www.emirates.com"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Mastercard",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/04/Mastercard-Logo.png",
+    "industry": "Financial Services",
+    "country": "United States",
+    "founded": 1966,
+    "headquarters": "Purchase, New York",
+    "revenue": 18884000000,
+    "marketCap": 350000000000,
+    "sponsorshipBudget": 400000000,
+    "type": "Official Partner",
+    "partnerships": [
+      {
+        "entity": "UEFA Champions League",
+        "type": "Competition",
+        "value": 50000000,
+        "duration": "2018-2024",
+        "category": "Official Partner"
+      },
+      {
+        "entity": "FIFA World Cup",
+        "type": "Competition",
+        "value": 100000000,
+        "duration": "2019-2030",
+        "category": "Official Partner"
+      }
+    ],
+    "totalPartnerships": 8,
+    "topSports": ["Football", "Baseball", "Golf", "Tennis"],
+    "globalPresence": 210,
+    "employees": 24000,
+    "sustainability": {
+      "rating": "A",
+      "initiatives": ["Financial Inclusion", "Digital Payments", "Carbon Neutral"]
+    },
+    "contactInfo": {
+      "email": "partnerships@mastercard.com",
+      "phone": "+1 914 249 2000",
+      "website": "www.mastercard.com"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Coca-Cola",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/04/Coca-Cola-Logo.png",
+    "industry": "Beverages",
+    "country": "United States",
+    "founded": 1886,
+    "headquarters": "Atlanta, Georgia",
+    "revenue": 38655000000,
+    "marketCap": 250000000000,
+    "sponsorshipBudget": 800000000,
+    "type": "Official Beverage Partner",
+    "partnerships": [
+      {
+        "entity": "FIFA World Cup",
+        "type": "Competition",
+        "value": 120000000,
+        "duration": "2019-2030",
+        "category": "Official Beverage"
+      },
+      {
+        "entity": "UEFA Euro",
+        "type": "Competition",
+        "value": 40000000,
+        "duration": "2020-2028",
+        "category": "Official Beverage"
+      }
+    ],
+    "totalPartnerships": 25,
+    "topSports": ["Football", "Olympics", "Basketball", "Baseball"],
+    "globalPresence": 200,
+    "employees": 86200,
+    "sustainability": {
+      "rating": "B+",
+      "initiatives": ["World Without Waste", "Water Stewardship", "Sustainable Packaging"]
+    },
+    "contactInfo": {
+      "email": "sponsorship@coca-cola.com",
+      "phone": "+1 404 676 2121",
+      "website": "www.coca-cola.com"
+    }
+  }
+]

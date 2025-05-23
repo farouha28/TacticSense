@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "name": "Real Madrid",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Real-Madrid-Logo.png",
+    "city": "Madrid",
+    "country": "Spain",
+    "league": "La Liga",
+    "founded": 1902,
+    "stadium": "Santiago Bernabéu",
+    "stadiumCapacity": 81044,
+    "marketValue": 5200,
+    "trophies": {
+      "league": 35,
+      "national": 19,
+      "international": 14
+    },
+    "stats": {
+      "wins": 22,
+      "draws": 6,
+      "losses": 4,
+      "goalsFor": 68,
+      "goalsAgainst": 28
+    }
+  },
+  {
+    "id": 2,
+    "name": "FC Barcelona",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Barcelona-Logo.png",
+    "city": "Barcelona",
+    "country": "Spain",
+    "league": "La Liga",
+    "founded": 1899,
+    "stadium": "Camp Nou",
+    "stadiumCapacity": 99354,
+    "marketValue": 4800,
+    "trophies": {
+      "league": 26,
+      "national": 31,
+      "international": 5
+    },
+    "stats": {
+      "wins": 20,
+      "draws": 8,
+      "losses": 4,
+      "goalsFor": 62,
+      "goalsAgainst": 32
+    }
+  },
+  {
+    "id": 3,
+    "name": "Manchester City",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png",
+    "city": "Manchester",
+    "country": "England",
+    "league": "Premier League",
+    "founded": 1880,
+    "stadium": "Etihad Stadium",
+    "stadiumCapacity": 55017,
+    "marketValue": 4500,
+    "trophies": {
+      "league": 9,
+      "national": 6,
+      "international": 1
+    },
+    "stats": {
+      "wins": 24,
+      "draws": 5,
+      "losses": 3,
+      "goalsFor": 75,
+      "goalsAgainst": 25
+    }
+  },
+  {
+    "id": 4,
+    "name": "Paris Saint-Germain",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Paris-Saint-Germain-PSG-Logo.png",
+    "city": "Paris",
+    "country": "France",
+    "league": "Ligue 1",
+    "founded": 1970,
+    "stadium": "Parc des Princes",
+    "stadiumCapacity": 47929,
+    "marketValue": 4200,
+    "trophies": {
+      "league": 11,
+      "national": 14,
+      "international": 0
+    },
+    "stats": {
+      "wins": 26,
+      "draws": 4,
+      "losses": 2,
+      "goalsFor": 82,
+      "goalsAgainst": 18
+    }
+  },
+  {
+    "id": 5,
+    "name": "Bayern Munich",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Bayern-Munich-Logo.png",
+    "city": "Munich",
+    "country": "Germany",
+    "league": "Bundesliga",
+    "founded": 1900,
+    "stadium": "Allianz Arena",
+    "stadiumCapacity": 75024,
+    "marketValue": 4100,
+    "trophies": {
+      "league": 32,
+      "national": 20,
+      "international": 8
+    },
+    "stats": {
+      "wins": 23,
+      "draws": 6,
+      "losses": 3,
+      "goalsFor": 71,
+      "goalsAgainst": 22
+    }
+  },
+  {
+    "id": 6,
+    "name": "Liverpool",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Liverpool-Logo.png",
+    "city": "Liverpool",
+    "country": "England",
+    "league": "Premier League",
+    "founded": 1892,
+    "stadium": "Anfield",
+    "stadiumCapacity": 53394,
+    "marketValue": 3900,
+    "trophies": {
+      "league": 19,
+      "national": 8,
+      "international": 6
+    },
+    "stats": {
+      "wins": 21,
+      "draws": 7,
+      "losses": 4,
+      "goalsFor": 64,
+      "goalsAgainst": 31
+    }
+  },
+  {
+    "id": 7,
+    "name": "Chelsea",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Chelsea-Logo.png",
+    "city": "London",
+    "country": "England",
+    "league": "Premier League",
+    "founded": 1905,
+    "stadium": "Stamford Bridge",
+    "stadiumCapacity": 40834,
+    "marketValue": 3700,
+    "trophies": {
+      "league": 6,
+      "national": 8,
+      "international": 2
+    },
+    "stats": {
+      "wins": 18,
+      "draws": 9,
+      "losses": 5,
+      "goalsFor": 55,
+      "goalsAgainst": 38
+    }
+  },
+  {
+    "id": 8,
+    "name": "Juventus",
+    "logo": "https://logos-world.net/wp-content/uploads/2020/06/Juventus-Logo.png",
+    "city": "Turin",
+    "country": "Italy",
+    "league": "Serie A",
+    "founded": 1897,
+    "stadium": "Allianz Stadium",
+    "stadiumCapacity": 41507,
+    "marketValue": 3500,
+    "trophies": {
+      "league": 36,
+      "national": 14,
+      "international": 2
+    },
+    "stats": {
+      "wins": 19,
+      "draws": 8,
+      "losses": 5,
+      "goalsFor": 58,
+      "goalsAgainst": 35
+    }
+  }
+]

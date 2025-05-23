@@ -1,111 +1,110 @@
 <nb-card>
   <nb-card-header>
     <div class="header-container">
-      <h1>
-        <nb-icon icon="award-outline" pack="eva"></nb-icon>
-        Sponsors
-      </h1>
-      <div class="actions-container">
-        <button nbButton status="primary" size="medium">
-          <nb-icon icon="plus-outline" pack="eva"></nb-icon>
-          Ajouter un sponsor
-        </button>
-      </div>
+      <h2>Sponsors</h2>
+      <p>Découvrez les sponsors majeurs du monde sportif</p>
     </div>
   </nb-card-header>
+  
   <nb-card-body>
     <div class="filters-container">
-      <div class="filter-item search-container">
-        <label>Rechercher</label>
-        <input nbInput fullWidth placeholder="Nom du sponsor" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()">
+      <div class="search-container">
+        <div class="input-with-icon">
+          <nb-icon class="search-icon" icon="search-outline" pack="eva"></nb-icon>
+          <input 
+            nbInput 
+            fullWidth 
+            placeholder="Rechercher un sponsor..." 
+            [(ngModel)]="searchQuery"
+            (ngModelChange)="onSearchChange()">
+        </div>
       </div>
       
-      <div class="filter-item">
-        <label>Industrie</label>
-        <nb-select placeholder="Toutes les industries" [(ngModel)]="industryFilter" (selectedChange)="applyFilters()" fullWidth>
-          <nb-option value="">Toutes les industries</nb-option>
-          <nb-option value="Équipement sportif">Équipement sportif</nb-option>
-          <nb-option value="Transport aérien">Transport aérien</nb-option>
-          <nb-option value="Boissons">Boissons</nb-option>
-          <nb-option value="Finance">Finance</nb-option>
+      <div class="industry-filter">
+        <nb-select placeholder="Industrie" [(selected)]="industryFilter" (selectedChange)="onIndustryChange()">
+          <nb-option value="all">Toutes les industries</nb-option>
+          <nb-option *ngFor="let industry of industries | slice:1" [value]="industry">
+            {{ industry }}
+          </nb-option>
         </nb-select>
-      </div>
-      
-      <div class="filter-item">
-        <label>Budget</label>
-        <nb-select placeholder="Tous les budgets" [(ngModel)]="budgetFilter" (selectedChange)="applyFilters()" fullWidth>
-          <nb-option value="">Tous les budgets</nb-option>
-          <nb-option value="high">Élevé</nb-option>
-          <nb-option value="medium">Moyen</nb-option>
-          <nb-option value="low">Faible</nb-option>
-        </nb-select>
-      </div>
-      
-      <div class="filter-item">
-        <label>Statut</label>
-        <nb-select placeholder="Tous les statuts" [(ngModel)]="statusFilter" (selectedChange)="applyFilters()" fullWidth>
-          <nb-option value="">Tous les statuts</nb-option>
-          <nb-option value="Active">Actif</nb-option>
-          <nb-option value="Pending">En attente</nb-option>
-          <nb-option value="Inactive">Inactif</nb-option>
-        </nb-select>
-      </div>
-      
-      <div class="filter-actions">
-        <button nbButton ghost (click)="resetFilters()">
-          <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
-          Réinitialiser
-        </button>
       </div>
     </div>
-
-    <div class="cards-grid">
-      <nb-card *ngFor="let sponsor of filteredSponsors" class="stakeholder-card">
-        <nb-card-header>
-          <div class="card-header-container">
-            <h5>{{ sponsor.name }}</h5>
-            <div class="header-actions">
-              <button nbButton ghost size="small" class="action-button" (click)="showSponsorProfile(sponsor)">
-                <nb-icon icon="eye-outline" pack="eva"></nb-icon>
-              </button>
+    
+    <div *ngIf="isLoading" class="loading-container">
+      <nb-spinner status="primary"></nb-spinner>
+      <p>Chargement des sponsors...</p>
+    </div>
+    
+    <div *ngIf="!isLoading && filteredSponsors.length === 0" class="no-results">
+      <nb-icon icon="alert-circle-outline" pack="eva"></nb-icon>
+      <p>Aucun sponsor ne correspond à vos critères</p>
+    </div>
+    
+    <div *ngIf="!isLoading && filteredSponsors.length > 0" class="sponsors-grid">
+      <div *ngFor="let sponsor of filteredSponsors" class="sponsor-card">
+        <div class="sponsor-header">
+          <span class="industry-badge">{{ sponsor.industry }}</span>
+          <span class="founded">Fondé en {{ sponsor.founded }}</span>
+        </div>
+        
+        <div class="sponsor-logo">
+          <img [src]="sponsor.logo" [alt]="sponsor.name" onerror="this.src='assets/images/placeholder-sponsor.png'">
+        </div>
+        
+        <div class="sponsor-info">
+          <h4>{{ sponsor.name }}</h4>
+          <div class="sponsor-details">
+            <div class="detail-item">
+              <nb-icon icon="pin-outline" pack="eva"></nb-icon>
+              <span>{{ sponsor.headquarters }}</span>
+            </div>
+            <div class="detail-item">
+              <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+              <span>Revenus: {{ sponsor.revenue }} M€</span>
             </div>
           </div>
-        </nb-card-header>
-        <nb-card-body>
-          <div class="sponsor-info">
-            <nb-user [name]="sponsor.name" [picture]="sponsor.logo" size="giant"></nb-user>
+          
+          <div class="sponsorship-value">
+            <span class="label">Valeur de sponsoring:</span>
+            <span class="value">{{ sponsor.sponsorshipValue }} M€</span>
+          </div>
+          
+          <div class="description">
+            <p>{{ sponsor.description }}</p>
+          </div>
+          
+          <div class="partnerships-section">
+            <h6>Partenariats:</h6>
             
-            <span class="status-badge" [ngClass]="sponsor.status.toLowerCase()">
-              {{ sponsor.status }}
-            </span>
+            <div *ngIf="sponsor.partnerships.clubs.length > 0" class="partnership-category">
+              <span class="category-label">Clubs:</span>
+              <div class="tags-container">
+                <nb-tag *ngFor="let club of sponsor.partnerships.clubs" [text]="club" status="primary" appearance="outline"></nb-tag>
+              </div>
+            </div>
             
-            <div class="info-list">
-              <div class="info-item">
-                <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
-                <span>{{ sponsor.industry }}</span>
+            <div *ngIf="sponsor.partnerships.players.length > 0" class="partnership-category">
+              <span class="category-label">Joueurs:</span>
+              <div class="tags-container">
+                <nb-tag *ngFor="let player of sponsor.partnerships.players" [text]="player" status="success" appearance="outline"></nb-tag>
               </div>
-              <div class="info-item">
-                <nb-icon icon="link-2-outline" pack="eva"></nb-icon>
-                <span>{{ sponsor.website }}</span>
-              </div>
-              <div class="info-item">
-                <nb-icon icon="handshake-outline" pack="eva"></nb-icon>
-                <span>{{ sponsor.partnerships }} partenariats</span>
+            </div>
+            
+            <div *ngIf="sponsor.partnerships.competitions.length > 0" class="partnership-category">
+              <span class="category-label">Compétitions:</span>
+              <div class="tags-container">
+                <nb-tag *ngFor="let competition of sponsor.partnerships.competitions" [text]="competition" status="info" appearance="outline"></nb-tag>
               </div>
             </div>
           </div>
-        </nb-card-body>
-        <nb-card-footer>
-          <button nbButton fullWidth status="primary" size="small" (click)="showSponsorProfile(sponsor)">
-            Voir le profil
-          </button>
-        </nb-card-footer>
-      </nb-card>
+        </div>
+        
+        <div class="sponsor-footer">
+          <button nbButton status="primary" size="small">Voir profil</button>
+          <button nbButton status="info" size="small" ghost>Contacter</button>
+        </div>
+      </div>
     </div>
   </nb-card-body>
 </nb-card>
-
-
-
-
 

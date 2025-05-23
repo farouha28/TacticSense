@@ -1,0 +1,193 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card class="recommendation-container">
+      <nb-card-header>
+        <div class="header-container">
+          <div class="back-button-container" *ngIf="selectedModel">
+            <button nbButton ghost status="basic" (click)="goBack()" class="back-button">
+              <nb-icon icon="arrow-back-outline" pack="eva"></nb-icon>
+              Retour à la sélection
+            </button>
+          </div>
+          <div class="title-container">
+            <nb-icon icon="bulb-outline" pack="eva"></nb-icon>
+            <h5>Recommandations IA de joueurs</h5>
+          </div>
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="search-container">
+              <h5>Recherche par requête</h5>
+              <p class="description">Décrivez le type de joueur que vous recherchez en langage naturel.</p>
+              <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+                <div class="form-group">
+                  <input
+                    nbInput
+                    fullWidth
+                    placeholder="Ex: Un jeune attaquant rapide avec un bon sens du but..."
+                    formControlName="query"
+                  />
+                </div>
+                <div class="example-queries">
+                  <span class="example-label">Exemples:</span>
+                  <div class="examples-list">
+                    <nb-tag (click)="useExampleQuery('Un milieu créatif avec une bonne vision du jeu')" status="info" appearance="outline">Milieu créatif</nb-tag>
+                    <nb-tag (click)="useExampleQuery('Un défenseur central expérimenté et bon dans les airs')" status="success" appearance="outline">Défenseur expérimenté</nb-tag>
+                    <nb-tag (click)="useExampleQuery('Un jeune gardien avec un bon jeu au pied')" status="warning" appearance="outline">Gardien moderne</nb-tag>
+                  </div>
+                </div>
+                <button nbButton status="primary" class="mt-3" type="submit" [disabled]="isLoading">
+                  <nb-icon icon="search-outline"></nb-icon>
+                  Analyser
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="models-container">
+              <h5>Recherche par modèle</h5>
+              <p class="description">Sélectionnez un modèle d'analyse prédéfini pour trouver des joueurs.</p>
+              <div class="models-buttons">
+                <button nbButton outline status="info" class="model-button" (click)="useModel('fit_score')" [disabled]="isLoading">
+                  <nb-icon icon="pantone-outline" pack="eva"></nb-icon>
+                  <div class="model-info">
+                    <span class="model-name">Compatibilité tactique</span>
+                    <span class="model-desc">Trouve des joueurs qui s'intègrent parfaitement dans votre système de jeu</span>
+                  </div>
+                </button>
+                <button nbButton outline status="success" class="model-button" (click)="useModel('hidden_value')" [disabled]="isLoading">
+                  <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+                  <div class="model-info">
+                    <span class="model-name">Pépites sous-cotées</span>
+                    <span class="model-desc">Identifie des talents cachés avec un excellent rapport qualité/prix</span>
+                  </div>
+                </button>
+                <button nbButton outline status="warning" class="model-button" (click)="useModel('position_analysis')" [disabled]="isLoading">
+                  <nb-icon icon="options-2-outline" pack="eva"></nb-icon>
+                  <div class="model-info">
+                    <span class="model-name">Analyse par poste</span>
+                    <span class="model-desc">Analyse approfondie des joueurs selon leur position spécifique</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="isLoading" class="loader-container">
+          <div class="loader-content">
+            <nb-spinner size="large" status="primary"></nb-spinner>
+            <div class="loader-text">
+              <h3>Notre IA analyse les données...</h3>
+              <p>Nous analysons des milliers de joueurs et de statistiques pour trouver les meilleures recommandations selon vos critères.</p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="recommendation" class="results-container" [@fadeIn]>
+          <nb-card>
+            <nb-card-header class="results-header">
+              <div class="model-info">
+                <nb-icon icon="flash-outline" pack="eva"></nb-icon>
+                <span class="model-name">{{ recommendation.modelUsed }}</span>
+              </div>
+              <div class="confidence-score">
+                <span class="score-label">Confiance:</span>
+                <nb-badge [text]="recommendation.confidenceScore + '%'" [status]="getConfidenceColor(recommendation.confidenceScore)"></nb-badge>
+              </div>
+            </nb-card-header>
+            <nb-card-body>
+              <div class="explanation-container">
+                <p class="explanation">{{ recommendation.explanation }}</p>
+              </div>
+
+              <div class="players-grid">
+                <div *ngFor="let player of recommendation.players" class="player-card" [@slideIn]>
+                  <nb-card>
+                    <nb-card-header class="d-flex justify-content-between align-items-center">
+                      <span>{{ player.name }}</span>
+                      <div>
+                        <nb-badge *ngIf="player.compatibility" [text]="'Compatibilité: ' + player.compatibility + '%'" status="success" class="mr-2"></nb-badge>
+                        <nb-badge [text]="player.position" [status]="getPositionBadgeStatus(player.position)"></nb-badge>
+                      </div>
+                    </nb-card-header>
+                    <nb-card-body>
+                      <div class="player-photo-container">
+                        <img [src]="player.photo" alt="{{ player.name }}" class="player-photo"
+                             [ngClass]="{'default-image': player.useDefaultImage}"
+                             (error)="player.useDefaultImage = true">
+                        <div *ngIf="player.compatibility" class="compatibility-badge">
+                          {{ player.compatibility }}%
+                        </div>
+                      </div>
+                      <div class="player-details">
+                        <div class="player-info-section">
+                          <div class="info-row">
+                            <span class="info-label">Âge:</span>
+                            <span class="info-value">{{ player.age }} ans</span>
+                          </div>
+                          <div class="info-row">
+                            <span class="info-label">Club:</span>
+                            <span class="info-value">{{ player.club }}</span>
+                          </div>
+                          <div class="info-row">
+                            <span class="info-label">Nationalité:</span>
+                            <span class="info-value">{{ player.nationality }}</span>
+                          </div>
+                          <div class="info-row">
+                            <span class="info-label">Valeur:</span>
+                            <span class="info-value">{{ player.marketValue }}M€</span>
+                          </div>
+                        </div>
+
+                        <div class="player-stats-section">
+                          <div class="stats-row">
+                            <div class="stat-item">
+                              <nb-icon icon="award-outline" pack="eva"></nb-icon>
+                              <span class="stat-value">{{ player.trophies }}</span>
+                              <span class="stat-label">Trophées</span>
+                            </div>
+                            <div class="stat-item">
+                              <nb-icon icon="checkmark-circle-outline" pack="eva"></nb-icon>
+                              <span class="stat-value">{{ player.goals }}</span>
+                              <span class="stat-label">Buts</span>
+                            </div>
+                            <div class="stat-item">
+                              <nb-icon icon="share-outline" pack="eva"></nb-icon>
+                              <span class="stat-value">{{ player.assists }}</span>
+                              <span class="stat-label">Passes</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="player-attributes">
+                          <h6 class="attributes-title">Attributs clés</h6>
+                          <div class="attributes-list">
+                            <div *ngFor="let attr of player.attributes | keyvalue" class="attribute-item">
+                              <span class="attribute-name">{{ attr.key }}</span>
+                              <nb-progress-bar [value]="attr.value" [status]="getAttributeStatus(attr.value)" size="tiny"></nb-progress-bar>
+                              <span class="attribute-value">{{ attr.value }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </nb-card-body>
+                    <nb-card-footer>
+                      <button nbButton fullWidth status="primary" size="small">
+                        <nb-icon icon="eye-outline" pack="eva"></nb-icon>
+                        Voir le profil complet
+                      </button>
+                    </nb-card-footer>
+                  </nb-card>
+                </div>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+

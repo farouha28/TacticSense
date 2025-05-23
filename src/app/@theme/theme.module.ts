@@ -1,20 +1,31 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbCheckboxModule,
+  NbContextMenuModule,
+  NbDatepickerModule,
+  NbIconModule,
+  NbInputModule,
   NbLayoutModule,
   NbMenuModule,
+  NbRadioModule,
   NbSearchModule,
-  NbSidebarModule,
-  NbUserModule,
-  NbContextMenuModule,
-  NbButtonModule,
   NbSelectModule,
-  NbIconModule,
+  NbSidebarModule,
+  NbTabsetModule,
   NbThemeModule,
+  NbToggleModule,
+  NbTooltipModule,
+  NbUserModule,
+  NbWindowModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
+import { TranslateModule } from '@ngx-translate/core';
 
 import {
   FooterComponent,
@@ -24,10 +35,10 @@ import {
 } from './components';
 import {
   CapitalizePipe,
+  NumberWithCommasPipe,
   PluralPipe,
   RoundPipe,
   TimingPipe,
-  NumberWithCommasPipe,
 } from './pipes';
 import {
   OneColumnLayoutComponent,
@@ -52,7 +63,18 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
+  NbCardModule,
+  NbInputModule,
+  NbCheckboxModule,
+  NbRadioModule,
+  NbDatepickerModule,
+  NbWindowModule,
+  NbTooltipModule,
+  NbToggleModule,
+  NbTabsetModule,
+  TranslateModule,
 ];
+
 const COMPONENTS = [
   HeaderComponent,
   FooterComponent,
@@ -62,6 +84,7 @@ const COMPONENTS = [
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
 ];
+
 const PIPES = [
   CapitalizePipe,
   PluralPipe,
@@ -71,8 +94,8 @@ const PIPES = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES],
-  exports: [CommonModule, ...PIPES, ...COMPONENTS],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ...NB_MODULES],
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, ...PIPES, ...COMPONENTS, ...NB_MODULES],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {

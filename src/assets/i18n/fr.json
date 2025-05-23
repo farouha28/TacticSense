@@ -1,0 +1,127 @@
+{
+  "HEADER": {
+    "TITLE": "TACTICSENSE",
+    "LANGUAGE": "Langue",
+    "SEARCH": "Rechercher...",
+    "PROFILE": "Profil",
+    "LOGOUT": "Déconnexion"
+  },
+  "MENU": {
+    "DASHBOARD": "Tableau de bord",
+    "FOOTBALL": "FOOTBALL",
+    "PLAYERS": "Joueurs",
+    "CLUBS": "Clubs",
+    "SPONSORS": "Sponsors",
+    "COACHES": "Entraîneurs",
+    "AGENTS": "Agents",
+    "FEATURES": "FONCTIONNALITÉS"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Bienvenue sur TacticSense - La plateforme d'analyse tactique du football",
+    "DESCRIPTION": "Explorez notre plateforme dédiée aux professionnels du football. Connectez-vous avec des joueurs, clubs, agents et sponsors du monde entier.",
+    "QUOTE": "Le talent sans travail n'est qu'une malédiction. Le football est comme la vie - il faut lutter pour atteindre ses objectifs.",
+    "AUTHOR": "- Cristiano Ronaldo"
+  },
+  "PLAYERS": {
+    "TITLE": "Joueurs",
+    "SEARCH": "Rechercher un joueur...",
+    "NATIONALITY": "Nationalité",
+    "ALL_NATIONALITIES": "Toutes les nationalités",
+    "POSITION": "Poste",
+    "ALL_POSITIONS": "Tous les postes",
+    "LOADING": "Chargement des joueurs...",
+    "PROFILE": "Voir profil",
+    "RECOMMEND": "Recommander",
+    "MARKET_VALUE": "Valeur marchande",
+    "AGE": "ans",
+    "GOALS": "Buts",
+    "ASSISTS": "Passes décisives",
+    "TROPHIES": "Trophées",
+    "AI_RECOMMENDATION": "Recommandation IA",
+    "FILTERS": "Filtres",
+    "VALUE": "Valeur",
+    "CLUB": "Club",
+    "POTENTIAL": "Potentiel",
+    "CONTACT": "Contact",
+    "BACK": "Retour"
+  },
+  "AI_RECOMMENDATION": {
+    "TITLE": "Recommandations IA",
+    "SUBTITLE": "Choisissez le modèle d'analyse qui correspond le mieux à vos besoins",
+    "TACTICAL_COMPATIBILITY": {
+      "TITLE": "Compatibilité Tactique",
+      "DESCRIPTION": "Trouve des joueurs qui s'intègrent parfaitement dans votre système de jeu et votre philosophie tactique.",
+      "FEATURES": [
+        "Analyse du système de jeu",
+        "Compatibilité positionnelle",
+        "Style de jeu adapté",
+        "Intégration tactique"
+      ]
+    },
+    "HIDDEN_GEMS": {
+      "TITLE": "Pépites Sous-cotées",
+      "DESCRIPTION": "Identifie des talents cachés avec un excellent rapport qualité/prix et un potentiel de croissance élevé.",
+      "FEATURES": [
+        "Analyse de la valeur marchande",
+        "Potentiel de progression",
+        "Talents émergents",
+        "Opportunités d'investissement"
+      ]
+    },
+    "POSITION_ANALYSIS": {
+      "TITLE": "Analyse par Poste",
+      "DESCRIPTION": "Analyse approfondie des joueurs selon leur position spécifique avec des métriques détaillées.",
+      "FEATURES": [
+        "Métriques spécialisées",
+        "Comparaison par poste",
+        "Analyse des performances",
+        "Recommandations ciblées"
+      ]
+    },
+    "SELECT_MODEL": "Sélectionner ce modèle",
+    "HOW_IT_WORKS": "Comment ça marche ?",
+    "HOW_IT_WORKS_DESC": "Nos modèles d'IA analysent des milliers de données de joueurs en temps réel pour vous proposer les recommandations les plus pertinentes selon vos critères spécifiques."
+  },
+  "CLUBS": {
+    "TITLE": "Clubs",
+    "SEARCH": "Rechercher un club...",
+    "COUNTRY": "Pays",
+    "ALL_COUNTRIES": "Tous les pays",
+    "LOADING": "Chargement des clubs..."
+  },
+  "COACHES": {
+    "TITLE": "Entraîneurs",
+    "SEARCH": "Rechercher un entraîneur...",
+    "NATIONALITY": "Nationalité",
+    "ALL_NATIONALITIES": "Toutes les nationalités",
+    "LOADING": "Chargement des entraîneurs..."
+  },
+  "AGENTS": {
+    "TITLE": "Agents",
+    "SEARCH": "Rechercher un agent ou un joueur...",
+    "NATIONALITY": "Nationalité",
+    "ALL_NATIONALITIES": "Toutes les nationalités",
+    "LOADING": "Chargement des agents..."
+  },
+  "SPONSORS": {
+    "TITLE": "Sponsors",
+    "SEARCH": "Rechercher un sponsor...",
+    "INDUSTRY": "Industrie",
+    "ALL_INDUSTRIES": "Toutes les industries",
+    "LOADING": "Chargement des sponsors..."
+  },
+  "COMMON": {
+    "BACK": "Retour",
+    "SAVE": "Enregistrer",
+    "CANCEL": "Annuler",
+    "DELETE": "Supprimer",
+    "EDIT": "Modifier",
+    "VIEW": "Voir",
+    "LOADING": "Chargement...",
+    "NO_RESULTS": "Aucun résultat trouvé",
+    "SEARCH": "Rechercher"
+  },
+  "FOOTER": {
+    "RIGHTS": "Tous droits réservés"
+  }
+}

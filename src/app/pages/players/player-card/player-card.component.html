@@ -1,0 +1,191 @@
+<div class="player-card" [@slideIn]>
+  <nb-card class="modern-card" [ngClass]="'position-' + player.position.toLowerCase()">
+    <!-- Header avec photo et infos principales -->
+    <div class="card-header">
+      <div class="player-photo-container">
+        <img [src]="player.photo" [alt]="player.name" class="player-photo"
+             onerror="this.src='assets/images/default-player.png'">
+        <div class="position-badge" [ngStyle]="{'background-color': getPositionColor(player.position)}">
+          {{ player.position }}
+        </div>
+      </div>
+
+      <div class="player-info">
+        <h4 class="player-name">{{ player.name }}</h4>
+        <div class="player-details">
+          <div class="detail-item">
+            <nb-icon icon="calendar-outline" pack="eva"></nb-icon>
+            <span>{{ player.age }} ans</span>
+          </div>
+          <div class="detail-item">
+            <nb-icon icon="home-outline" pack="eva"></nb-icon>
+            <span>{{ player.club }}</span>
+          </div>
+          <div class="detail-item">
+            <nb-icon icon="flag-outline" pack="eva"></nb-icon>
+            <span>{{ player.nationality }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats principales -->
+    <div class="stats-section">
+      <div class="stat-item">
+        <div class="stat-value">{{ formatValue(player.marketValue) }}</div>
+        <div class="stat-label">Valeur</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ player.goals || 0 }}</div>
+        <div class="stat-label">Buts</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ player.assists || 0 }}</div>
+        <div class="stat-label">Passes D.</div>
+      </div>
+    </div>
+
+    <!-- Barre de potentiel -->
+    <div class="potential-section">
+      <div class="potential-label">
+        <span>Potentiel</span>
+        <span class="potential-value">{{ player.potential || 75 }}/100</span>
+      </div>
+      <div class="potential-bar">
+        <div class="potential-fill"
+             [ngStyle]="{
+               'width': (player.potential || 75) + '%',
+               'background-color': getPotentialColor(player.potential || 75)
+             }">
+        </div>
+      </div>
+    </div>
+
+    <!-- Score de compatibilité (si disponible) -->
+    <div class="compatibility-section" *ngIf="player.compatibility">
+      <div class="compatibility-label">
+        <nb-icon icon="checkmark-circle-outline" pack="eva"></nb-icon>
+        <span>Compatibilité: {{ player.compatibility }}%</span>
+      </div>
+      <div class="compatibility-bar">
+        <div class="compatibility-fill"
+             [ngStyle]="{
+               'width': player.compatibility + '%',
+               'background-color': getCompatibilityColor(player.compatibility)
+             }">
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions-section" *ngIf="showActions">
+      <button nbButton status="primary" size="small" (click)="onProfileClick()" class="action-btn">
+        <nb-icon icon="person-outline" pack="eva"></nb-icon>
+        Profil
+      </button>
+      <button nbButton status="info" size="small" (click)="onContactClick()" class="action-btn">
+        <nb-icon icon="email-outline" pack="eva"></nb-icon>
+        Contact
+      </button>
+    </div>
+  </nb-card>
+</div>
+
+<!-- Modal simple pour le profil détaillé -->
+<div class="profile-modal-overlay" *ngIf="showProfileDialog" (click)="closeProfileDialog()">
+  <div class="profile-modal" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <div class="player-header-info">
+        <img [src]="player.photo" [alt]="player.name" class="dialog-player-photo"
+             onerror="this.src='assets/images/default-player.png'">
+        <div class="dialog-player-details">
+          <h3>{{ player.name }}</h3>
+          <div class="player-meta">
+            <span class="position-tag" [ngStyle]="{'background-color': getPositionColor(player.position)}">
+              {{ player.position }}
+            </span>
+            <span class="age-info">{{ player.age }} ans</span>
+            <span class="club-info">{{ player.club }}</span>
+          </div>
+        </div>
+      </div>
+      <button class="close-btn" (click)="closeProfileDialog()">
+        <nb-icon icon="close-outline" pack="eva"></nb-icon>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Informations personnelles -->
+      <div class="info-section">
+        <h4>Informations personnelles</h4>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Nationalité:</label>
+            <span>{{ player.nationality }}</span>
+          </div>
+          <div class="info-item">
+            <label>Âge:</label>
+            <span>{{ player.age }} ans</span>
+          </div>
+          <div class="info-item">
+            <label>Poste:</label>
+            <span>{{ player.position }}</span>
+          </div>
+          <div class="info-item">
+            <label>Club actuel:</label>
+            <span>{{ player.club }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistiques -->
+      <div class="stats-section-detailed">
+        <h4>Statistiques</h4>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">{{ player.goals || 0 }}</div>
+            <div class="stat-name">Buts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{ player.assists || 0 }}</div>
+            <div class="stat-name">Passes décisives</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{ formatValue(player.marketValue) }}</div>
+            <div class="stat-name">Valeur marchande</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">{{ player.potential || 75 }}</div>
+            <div class="stat-name">Potentiel</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score de compatibilité -->
+      <div class="compatibility-section-detailed" *ngIf="player.compatibility">
+        <h4>Analyse de compatibilité</h4>
+        <div class="compatibility-score">
+          <div class="score-circle" [ngStyle]="{'border-color': getCompatibilityColor(player.compatibility)}">
+            <span class="score-number">{{ player.compatibility }}%</span>
+          </div>
+          <div class="score-description">
+            <p *ngIf="player.compatibility >= 90">Compatibilité exceptionnelle avec votre système de jeu</p>
+            <p *ngIf="player.compatibility >= 80 && player.compatibility < 90">Très bonne compatibilité tactique</p>
+            <p *ngIf="player.compatibility >= 70 && player.compatibility < 80">Bonne intégration possible</p>
+            <p *ngIf="player.compatibility < 70">Compatibilité modérée</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button nbButton status="info" (click)="onContactClick(); closeProfileDialog()">
+        <nb-icon icon="email-outline" pack="eva"></nb-icon>
+        Contacter
+      </button>
+      <button nbButton status="basic" (click)="closeProfileDialog()">
+        Fermer
+      </button>
+    </div>
+  </div>
+</div>

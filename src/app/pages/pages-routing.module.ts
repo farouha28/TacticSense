@@ -24,6 +24,11 @@ const routes: Routes = [{
         .then(m => m.ClubsModule),
     },
     {
+      path: 'coaches',
+      loadChildren: () => import('./coaches/coaches.module')
+        .then(m => m.CoachesModule),
+    },
+    {
       path: 'agents',
       loadChildren: () => import('./agents/agents.module')
         .then(m => m.AgentsModule),
@@ -32,56 +37,6 @@ const routes: Routes = [{
       path: 'sponsors',
       loadChildren: () => import('./sponsors/sponsors.module')
         .then(m => m.SponsorsModule),
-    },
-    {
-      path: 'statistics',
-      loadChildren: () => import('./statistics/statistics.module')
-        .then(m => m.StatisticsModule),
-    },
-    {
-      path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
-    },
-    {
-      path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
-    },
-    {
-      path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
-    },
-    {
-      path: 'modal-overlays',
-      loadChildren: () => import('./modal-overlays/modal-overlays.module')
-        .then(m => m.ModalOverlaysModule),
-    },
-    {
-      path: 'extra-components',
-      loadChildren: () => import('./extra-components/extra-components.module')
-        .then(m => m.ExtraComponentsModule),
-    },
-    {
-      path: 'maps',
-      loadChildren: () => import('./maps/maps.module')
-        .then(m => m.MapsModule),
-    },
-    {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
-      path: 'editors',
-      loadChildren: () => import('./editors/editors.module')
-        .then(m => m.EditorsModule),
-    },
-    {
-      path: 'tables',
-      loadChildren: () => import('./tables/tables.module')
-        .then(m => m.TablesModule),
     },
     {
       path: 'miscellaneous',

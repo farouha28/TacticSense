@@ -1,0 +1,118 @@
+[
+  {
+    "id": 1,
+    "name": "Kylian Mbappé",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/342229-1602849394.jpg",
+    "age": 24,
+    "nationality": "France",
+    "position": "ATT",
+    "club": "Real Madrid",
+    "status": "Active",
+    "trophies": 12,
+    "goals": 180,
+    "assists": 79,
+    "marketValue": 180000000,
+    "potential": 95,
+    "attributes": {
+      "Speed": 96,
+      "Finishing": 92,
+      "Dribbling": 93,
+      "Passing": 85,
+      "Physical": 78,
+      "Defense": 42
+    }
+  },
+  {
+    "id": 2,
+    "name": "Erling Haaland",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/418560-1656179352.jpg",
+    "age": 23,
+    "nationality": "Norway",
+    "position": "ATT",
+    "club": "Manchester City",
+    "status": "Active",
+    "trophies": 5,
+    "goals": 175,
+    "assists": 30,
+    "marketValue": 170000000,
+    "potential": 93,
+    "attributes": {
+      "Speed": 89,
+      "Finishing": 95,
+      "Dribbling": 82,
+      "Passing": 70,
+      "Physical": 94,
+      "Defense": 45
+    }
+  },
+  {
+    "id": 3,
+    "name": "Jude Bellingham",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/581678-1686217325.jpg",
+    "age": 20,
+    "nationality": "England",
+    "position": "MID",
+    "club": "Real Madrid",
+    "status": "Active",
+    "trophies": 3,
+    "goals": 45,
+    "assists": 52,
+    "marketValue": 150000000,
+    "potential": 91,
+    "attributes": {
+      "Speed": 82,
+      "Finishing": 84,
+      "Dribbling": 87,
+      "Passing": 90,
+      "Physical": 85,
+      "Defense": 78
+    }
+  },
+  {
+    "id": 4,
+    "name": "Virgil van Dijk",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/139208-1620651710.jpg",
+    "age": 32,
+    "nationality": "Netherlands",
+    "position": "DEF",
+    "club": "Liverpool",
+    "status": "Active",
+    "trophies": 8,
+    "goals": 22,
+    "assists": 10,
+    "marketValue": 45000000,
+    "potential": 88,
+    "attributes": {
+      "Speed": 81,
+      "Finishing": 60,
+      "Dribbling": 72,
+      "Passing": 85,
+      "Physical": 93,
+      "Defense": 92
+    }
+  },
+  {
+    "id": 5,
+    "name": "Thibaut Courtois",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/108390-1661509349.jpg",
+    "age": 31,
+    "nationality": "Belgium",
+    "position": "GK",
+    "club": "Real Madrid",
+    "status": "Injured",
+    "trophies": 14,
+    "goals": 0,
+    "assists": 0,
+    "marketValue": 40000000,
+    "potential": 85,
+    "attributes": {
+      "Reflexes": 92,
+      "Diving": 90,
+      "Footwork": 82,
+      "Positioning": 91,
+      "Aerial ability": 88,
+      "Distribution": 85
+    }
+  }
+]
+

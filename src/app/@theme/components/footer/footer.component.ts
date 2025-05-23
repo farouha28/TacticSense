@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss'],
   template: `
     <span class="created-by">
-      TacticSense © {{ currentYear }} | Tous droits réservés
+      TacticSense © {{ currentYear }} | All rights reserved ESPRIT
     </span>
     <div class="socials">
       <a href="https://github.com/tacticsense" target="_blank" class="ion ion-social-github"></a>

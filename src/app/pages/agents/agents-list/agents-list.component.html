@@ -1,113 +1,103 @@
-<div class="header-container">
-  <h1>
-    <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
-    Agents
-  </h1>
-  <div class="actions-container">
-    <button nbButton status="primary" size="medium">
-      <nb-icon icon="plus-outline" pack="eva"></nb-icon>
-      Ajouter un agent
-    </button>
-  </div>
-</div>
-
-<div class="filters-container">
-  <div class="filter-item search-container">
-    <label>Rechercher</label>
-    <input nbInput fullWidth placeholder="Nom de l'agent" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()">
-  </div>
+<nb-card>
+  <nb-card-header>
+    <div class="header-container">
+      <h2>Agents</h2>
+      <p>Découvrez les agents les plus influents du football mondial</p>
+    </div>
+  </nb-card-header>
   
-  <div class="filter-item">
-    <label>Pays</label>
-    <nb-select placeholder="Tous les pays" [(ngModel)]="countryFilter" (selectedChange)="applyFilters()" fullWidth>
-      <nb-option value="">Tous les pays</nb-option>
-      <nb-option value="France">France</nb-option>
-      <nb-option value="Portugal">Portugal</nb-option>
-      <nb-option value="Italie">Italie</nb-option>
-      <nb-option value="Angleterre">Angleterre</nb-option>
-      <nb-option value="Allemagne">Allemagne</nb-option>
-      <nb-option value="Israël">Israël</nb-option>
-    </nb-select>
-  </div>
-  
-  <div class="filter-item">
-    <label>Spécialité</label>
-    <nb-select placeholder="Toutes les spécialités" [(ngModel)]="specialtyFilter" (selectedChange)="applyFilters()" fullWidth>
-      <nb-option value="">Toutes les spécialités</nb-option>
-      <nb-option value="Transferts internationaux">Transferts internationaux</nb-option>
-      <nb-option value="Jeunes talents">Jeunes talents</nb-option>
-      <nb-option value="Contrats commerciaux">Contrats commerciaux</nb-option>
-    </nb-select>
-  </div>
-  
-  <div class="filter-item">
-    <label>Statut</label>
-    <nb-select placeholder="Tous les statuts" [(ngModel)]="statusFilter" (selectedChange)="applyFilters()" fullWidth>
-      <nb-option value="">Tous les statuts</nb-option>
-      <nb-option value="Active">Actif</nb-option>
-      <nb-option value="Pending">En attente</nb-option>
-      <nb-option value="Inactive">Inactif</nb-option>
-    </nb-select>
-  </div>
-  
-  <div class="filter-actions">
-    <button nbButton ghost (click)="resetFilters()">
-      <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
-      Réinitialiser
-    </button>
-  </div>
-</div>
-
-<div class="cards-grid">
-  <nb-card *ngFor="let agent of filteredAgents" class="stakeholder-card">
-    <nb-card-header>
-      <div class="card-header-container">
-        <h5>{{ agent.name }}</h5>
-        <div class="header-actions">
-          <button nbButton ghost size="small" class="action-button" (click)="showAgentProfile(agent)">
-            <nb-icon icon="eye-outline" pack="eva"></nb-icon>
-          </button>
+  <nb-card-body>
+    <div class="filters-container">
+      <div class="search-container">
+        <div class="input-with-icon">
+          <nb-icon class="search-icon" icon="search-outline" pack="eva"></nb-icon>
+          <input 
+            nbInput 
+            fullWidth 
+            placeholder="Rechercher un agent ou un joueur..." 
+            [(ngModel)]="searchQuery"
+            (ngModelChange)="onSearchChange()">
         </div>
       </div>
-    </nb-card-header>
-    <nb-card-body>
-      <div class="agent-info">
-        <nb-user [name]="agent.name" [picture]="agent.photo" size="giant"></nb-user>
+      
+      <div class="nationality-filter">
+        <nb-select placeholder="Nationalité" [(selected)]="nationalityFilter" (selectedChange)="onNationalityChange()">
+          <nb-option value="all">Toutes les nationalités</nb-option>
+          <nb-option *ngFor="let nationality of nationalities | slice:1" [value]="nationality">
+            {{ nationality }}
+          </nb-option>
+        </nb-select>
+      </div>
+    </div>
+    
+    <div *ngIf="isLoading" class="loading-container">
+      <nb-spinner status="primary"></nb-spinner>
+      <p>Chargement des agents...</p>
+    </div>
+    
+    <div *ngIf="!isLoading && filteredAgents.length === 0" class="no-results">
+      <nb-icon icon="alert-circle-outline" pack="eva"></nb-icon>
+      <p>Aucun agent ne correspond à vos critères</p>
+    </div>
+    
+    <div *ngIf="!isLoading && filteredAgents.length > 0" class="agents-grid">
+      <div *ngFor="let agent of filteredAgents" class="agent-card">
+        <div class="agent-header">
+          <span class="nationality-badge">{{ agent.nationality }}</span>
+          <span class="agency">{{ agent.agency }}</span>
+        </div>
         
-        <span class="status-badge" [ngClass]="agent.status.toLowerCase()">
-          {{ agent.status }}
-        </span>
+        <div class="agent-photo">
+          <img [src]="agent.photo" [alt]="agent.name" onerror="this.src='assets/images/placeholder-agent.png'">
+        </div>
         
-        <div class="info-list">
-          <div class="info-item">
-            <nb-icon icon="flag-outline" pack="eva"></nb-icon>
-            <span>{{ agent.country }}</span>
+        <div class="agent-info">
+          <h4>{{ agent.name }}</h4>
+          <div class="agent-details">
+            <div class="detail-item">
+              <nb-icon icon="person-outline" pack="eva"></nb-icon>
+              <span>{{ agent.age }} ans</span>
+            </div>
+            <div class="detail-item">
+              <nb-icon icon="people-outline" pack="eva"></nb-icon>
+              <span>{{ agent.clients }} clients</span>
+            </div>
+            <div class="detail-item">
+              <nb-icon icon="swap-outline" pack="eva"></nb-icon>
+              <span>{{ agent.totalTransfers }} transferts</span>
+            </div>
           </div>
-          <div class="info-item">
-            <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
-            <span>{{ agent.agency }}</span>
+          
+          <div class="agent-value">
+            <span class="label">Valeur des transferts:</span>
+            <span class="value">{{ agent.transferValue }} M€</span>
           </div>
-          <div class="info-item">
-            <nb-icon icon="people-outline" pack="eva"></nb-icon>
-            <span>{{ agent.clients }} clients</span>
+          
+          <div class="clients-section">
+            <h6>Clients principaux:</h6>
+            <nb-list>
+              <nb-list-item *ngFor="let client of agent.topClients">
+                <nb-icon icon="star-outline" pack="eva" status="warning"></nb-icon>
+                <span>{{ client }}</span>
+              </nb-list-item>
+            </nb-list>
           </div>
-          <div class="info-item">
-            <nb-icon icon="swap-outline" pack="eva"></nb-icon>
-            <span>{{ agent.deals }} transferts</span>
-          </div>
-          <div class="info-item">
-            <nb-icon icon="star-outline" pack="eva"></nb-icon>
-            <span>{{ agent.specialty }}</span>
+          
+          <div class="specialization-section">
+            <h6>Spécialisations:</h6>
+            <div class="tags">
+              <nb-tag *ngFor="let spec of agent.specialization" [text]="spec" status="info" appearance="outline"></nb-tag>
+            </div>
           </div>
         </div>
+        
+        <div class="agent-footer">
+          <button nbButton status="primary" size="small">Voir profil</button>
+          <button nbButton status="info" size="small" ghost>Contacter</button>
+        </div>
       </div>
-    </nb-card-body>
-    <nb-card-footer>
-      <button nbButton fullWidth status="primary" size="small" (click)="showAgentProfile(agent)">
-        Voir le profil
-      </button>
-    </nb-card-footer>
-  </nb-card>
-</div>
+    </div>
+  </nb-card-body>
+</nb-card>
 
 

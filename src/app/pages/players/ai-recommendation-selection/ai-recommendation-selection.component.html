@@ -1,0 +1,72 @@
+<div class="ai-selection-container" [@fadeIn]>
+  <div class="header-section">
+    <div class="back-button-container">
+      <button nbButton ghost status="basic" (click)="goBack()" class="back-button">
+        <nb-icon icon="arrow-back-outline" pack="eva"></nb-icon>
+        Retour
+      </button>
+    </div>
+    
+    <div class="title-container">
+      <div class="icon-container">
+        <nb-icon icon="bulb-outline" pack="eva" class="main-icon"></nb-icon>
+      </div>
+      <div class="text-container">
+        <h1>Recommandations IA</h1>
+        <p class="subtitle">Choisissez le modèle d'analyse qui correspond le mieux à vos besoins</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="models-grid" [@slideIn]>
+    <div *ngFor="let model of models" class="model-card" (click)="selectModel(model.id)">
+      <nb-card [ngStyle]="{'background': model.gradient}" class="gradient-card">
+        <div class="card-overlay">
+          <nb-card-header>
+            <div class="model-header">
+              <div class="icon-wrapper">
+                <nb-icon [icon]="model.icon" pack="eva" class="model-icon"></nb-icon>
+              </div>
+              <h3 class="model-title">{{ model.title }}</h3>
+            </div>
+          </nb-card-header>
+          
+          <nb-card-body>
+            <p class="model-description">{{ model.description }}</p>
+            
+            <div class="features-list">
+              <div *ngFor="let feature of model.features" class="feature-item">
+                <nb-icon icon="checkmark-circle-outline" pack="eva" class="check-icon"></nb-icon>
+                <span>{{ feature }}</span>
+              </div>
+            </div>
+          </nb-card-body>
+          
+          <nb-card-footer>
+            <button nbButton fullWidth status="basic" size="large" class="select-button">
+              <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
+              Sélectionner ce modèle
+            </button>
+          </nb-card-footer>
+        </div>
+      </nb-card>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <nb-card status="info" class="info-card">
+      <nb-card-body>
+        <div class="info-content">
+          <nb-icon icon="info-outline" pack="eva" class="info-icon"></nb-icon>
+          <div class="info-text">
+            <h4>Comment ça marche ?</h4>
+            <p>
+              Nos modèles d'IA analysent des milliers de données de joueurs en temps réel pour vous proposer 
+              les recommandations les plus pertinentes selon vos critères spécifiques.
+            </p>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

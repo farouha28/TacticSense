@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {
   NbButtonModule,
   NbCardModule,
@@ -109,5 +109,6 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
   providers: [
     CountryOrdersMapService,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajout du schéma pour résoudre les erreurs d'éléments inconnus
 })
 export class ECommerceModule { }

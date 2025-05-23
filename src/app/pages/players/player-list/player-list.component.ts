@@ -10,14 +10,31 @@ import { Router } from '@angular/router';
 })
 export class PlayerListComponent implements OnInit {
   players: Player[] = [];
+  loading = true;
 
   constructor(private playerService: PlayersService, private router: Router) {}
 
   ngOnInit(): void {
-    this.players = this.playerService.getAllPlayers();
+    this.playerService.getAllPlayers().subscribe({
+      next: (players) => {
+        this.players = players;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Erreur lors du chargement des joueurs:', error);
+        this.loading = false;
+      }
+    });
   }
 
   goToProfile(id: number): void {
     this.router.navigate(['/players', id]);
+  }
+
+  formatMarketValue(value: number): string {
+    if (value >= 1000000) {
+      return (value / 1000000).toFixed(0) + 'M€';
+    }
+    return value.toLocaleString() + '€';
   }
 }

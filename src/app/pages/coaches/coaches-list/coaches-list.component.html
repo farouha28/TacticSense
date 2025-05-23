@@ -1,41 +1,105 @@
-<div class="row">
-  <div class="col-md-12">
-    <nb-card>
-      <nb-card-header>
-        <h2>Entraîneurs</h2>
-        <div class="search-container">
-          <input 
-            nbInput 
-            placeholder="Rechercher un entraîneur..." 
+<nb-card>
+  <nb-card-header>
+    <div class="header-container">
+      <h2>Entraîneurs</h2>
+      <p>Découvrez les meilleurs entraîneurs du football mondial</p>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div class="filters-container">
+      <div class="search-container">
+        <div class="input-with-icon">
+          <nb-icon class="search-icon" icon="search-outline" pack="eva"></nb-icon>
+          <input
+            nbInput
+            fullWidth
+            placeholder="Rechercher un entraîneur..."
             [(ngModel)]="searchQuery"
-            (ngModelChange)="filterCoaches()"
-            fullWidth>
+            (ngModelChange)="onSearchChange()">
         </div>
-      </nb-card-header>
-    </nb-card>
-  </div>
-</div>
+      </div>
 
-<div class="row">
-  <div class="col-md-4" *ngFor="let coach of filteredCoaches">
-    <nb-card>
-      <nb-card-header>
+      <div class="nationality-filter">
+        <nb-select placeholder="Nationalité" [(selected)]="nationalityFilter" (selectedChange)="onNationalityChange()">
+          <nb-option value="all">Toutes les nationalités</nb-option>
+          <nb-option *ngFor="let nationality of nationalities | slice:1" [value]="nationality">
+            {{ nationality }}
+          </nb-option>
+        </nb-select>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="loading-container">
+      <nb-spinner status="primary"></nb-spinner>
+      <p>Chargement des entraîneurs...</p>
+    </div>
+
+    <div *ngIf="!isLoading && filteredCoaches.length === 0" class="no-results">
+      <nb-icon icon="alert-circle-outline" pack="eva"></nb-icon>
+      <p>Aucun entraîneur ne correspond à vos critères</p>
+    </div>
+
+    <div *ngIf="!isLoading && filteredCoaches.length > 0" class="coaches-grid">
+      <div *ngFor="let coach of filteredCoaches" class="coach-card">
         <div class="coach-header">
-          <nb-user [name]="coach.name" [title]="coach.nationality" [picture]="coach.image"></nb-user>
+          <span class="nationality-badge">{{ coach.nationality }}</span>
+          <span class="age">{{ coach.age }} ans</span>
         </div>
-      </nb-card-header>
-      <nb-card-body>
-        <div class="coach-info">
-          <p><strong>Club:</strong> {{ coach.club }}</p>
-          <p><strong>Âge:</strong> {{ coach.age }} ans</p>
-          <p><strong>Expérience:</strong> {{ coach.experience }} ans</p>
-          <p><strong>Trophées:</strong> {{ coach.trophies }}</p>
-        </div>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton status="primary" fullWidth>Voir profil</button>
-      </nb-card-footer>
-    </nb-card>
-  </div>
-</div>
 
+        <div class="coach-photo">
+          <img [src]="coach.photo" [alt]="coach.name" onerror="this.src='assets/images/placeholder-profile.jpg'">
+        </div>
+
+        <div class="coach-info">
+          <h4>{{ coach.name }}</h4>
+          <div class="current-club">
+            <nb-icon icon="shield-outline" pack="eva"></nb-icon>
+            <span>{{ coach.currentClub }}</span>
+          </div>
+
+          <div class="coaching-style">
+            <span class="label">Style de jeu:</span>
+            <span class="value">{{ coach.tacticalStyle }}</span>
+          </div>
+
+          <div class="formation">
+            <span class="label">Formation préférée:</span>
+            <span class="value">{{ coach.preferredFormation }}</span>
+          </div>
+
+          <div class="trophy-section">
+            <h6>Palmarès:</h6>
+            <div class="trophies">
+              <div class="trophy">
+                <nb-icon icon="award-outline" pack="eva" status="warning"></nb-icon>
+                <span class="count">{{ coach.trophies }}</span>
+                <span class="label">Total</span>
+              </div>
+              <div class="trophy">
+                <nb-icon icon="calendar-outline" pack="eva" status="info"></nb-icon>
+                <span class="count">{{ coach.experience }}</span>
+                <span class="label">Années</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="win-rate">
+            <span class="label">Taux de victoire:</span>
+            <span class="value">{{ coach.stats.winPercentage }}%</span>
+          </div>
+
+          <div class="contract-info">
+            <span class="label">Contrat jusqu'en:</span>
+            <span class="value">{{ coach.contractUntil }}</span>
+          </div>
+        </div>
+
+        <div class="coach-footer">
+          <button nbButton status="primary" size="small">Voir profil</button>
+          <button nbButton status="info" size="small" ghost>Statistiques</button>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

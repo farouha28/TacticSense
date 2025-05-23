@@ -4,18 +4,28 @@
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
     <a class="logo" href="#" (click)="navigateHome()">
-      <span class="tactic">Tactic</span><span class="sense">Sense</span>
+      <span class="tactic">TACTICSENSE</span>
     </a>
   </div>
-  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
-    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
-  </nb-select>
+  <div class="header-controls">
+    <nb-select [selected]="currentLanguage" (selectedChange)="changeLanguage($event)" status="info" size="small" class="language-select">
+      <nb-option *ngFor="let lang of languages" [value]="lang.value">
+        <span class="language-option">
+          <span class="flag">{{ lang.flag }}</span>
+          <span class="name">{{ lang.name }}</span>
+        </span>
+      </nb-option>
+    </nb-select>
+    <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary" size="small" class="theme-select">
+      <nb-option *ngFor="let theme of themes" [value]="theme.value">{{ theme.name }}</nb-option>
+    </nb-select>
+  </div>
 </div>
 
 <div class="header-container">
   <nb-actions size="small">
     <nb-action class="control-item">
-      <nb-search type="rotate-layout"></nb-search>
+      <nb-search type="rotate-layout" placeholder="Search..."></nb-search>
     </nb-action>
     <nb-action class="control-item" icon="email-outline"></nb-action>
     <nb-action class="control-item" icon="bell-outline"></nb-action>

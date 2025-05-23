@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "name": "Jorge Mendes",
+    "photo": "https://example.com/mendes.jpg",
+    "agency": "Gestifute",
+    "nationality": "Portugal",
+    "experience": 25,
+    "totalClients": 150,
+    "topClients": ["Cristiano Ronaldo", "José Mourinho", "Bernardo Silva", "João Félix"],
+    "totalTransfers": 890,
+    "totalValue": 2500000000,
+    "specialties": ["Star players", "Coaches", "International transfers"],
+    "languages": ["Portuguese", "Spanish", "English", "French"],
+    "founded": 1996,
+    "headquarters": "Porto, Portugal",
+    "offices": ["Madrid", "London", "Milan", "Paris"],
+    "achievements": [
+      "Agent of the Year 2019",
+      "Most influential agent",
+      "Record transfer fees"
+    ],
+    "contactInfo": {
+      "email": "contact@gestifute.com",
+      "phone": "+351 220 000 000",
+      "website": "www.gestifute.com"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Mino Raiola",
+    "photo": "https://example.com/raiola.jpg",
+    "agency": "Raiola Sports",
+    "nationality": "Italy",
+    "experience": 30,
+    "totalClients": 80,
+    "topClients": ["Erling Haaland", "Paul Pogba", "Zlatan Ibrahimović", "Marco Verratti"],
+    "totalTransfers": 450,
+    "totalValue": 1800000000,
+    "specialties": ["Superstar negotiations", "Record contracts", "Player development"],
+    "languages": ["Italian", "Dutch", "English", "German"],
+    "founded": 1993,
+    "headquarters": "Monaco",
+    "offices": ["Milan", "Amsterdam", "London"],
+    "achievements": [
+      "Highest transfer fees negotiated",
+      "Most powerful agent",
+      "Revolutionary contracts"
+    ],
+    "contactInfo": {
+      "email": "info@raiola.com",
+      "phone": "+377 97 000 000",
+      "website": "www.raiola.com"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Florian Kohfeldt",
+    "photo": "https://example.com/kohfeldt.jpg",
+    "agency": "Sports Total",
+    "nationality": "Germany",
+    "experience": 15,
+    "totalClients": 120,
+    "topClients": ["Timo Werner", "Kai Havertz", "Leon Goretzka", "Serge Gnabry"],
+    "totalTransfers": 320,
+    "totalValue": 950000000,
+    "specialties": ["German talent", "Bundesliga expertise", "Youth development"],
+    "languages": ["German", "English", "Spanish"],
+    "founded": 2008,
+    "headquarters": "Munich, Germany",
+    "offices": ["Berlin", "Hamburg", "London"],
+    "achievements": [
+      "Best German agent 2020",
+      "Youth development expert",
+      "Bundesliga specialist"
+    ],
+    "contactInfo": {
+      "email": "contact@sportstotal.de",
+      "phone": "+49 89 000 000",
+      "website": "www.sportstotal.de"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Jonathan Barnett",
+    "photo": "https://example.com/barnett.jpg",
+    "agency": "Stellar Group",
+    "nationality": "England",
+    "experience": 20,
+    "totalClients": 200,
+    "topClients": ["Gareth Bale", "Saul Ñíguez", "Ben Chilwell", "Tammy Abraham"],
+    "totalTransfers": 560,
+    "totalValue": 1200000000,
+    "specialties": ["Premier League", "Welsh players", "Contract negotiations"],
+    "languages": ["English", "Spanish", "Welsh"],
+    "founded": 2000,
+    "headquarters": "London, England",
+    "offices": ["Madrid", "Cardiff", "Manchester"],
+    "achievements": [
+      "Premier League agent of the year",
+      "Record Welsh transfers",
+      "Top UK agent"
+    ],
+    "contactInfo": {
+      "email": "info@stellargroup.co.uk",
+      "phone": "+44 20 000 0000",
+      "website": "www.stellargroup.co.uk"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Pini Zahavi",
+    "photo": "https://example.com/zahavi.jpg",
+    "agency": "Zahavi Sports",
+    "nationality": "Israel",
+    "experience": 35,
+    "totalClients": 60,
+    "topClients": ["Robert Lewandowski", "Rio Ferdinand", "Avram Grant"],
+    "totalTransfers": 280,
+    "totalValue": 800000000,
+    "specialties": ["Veteran expertise", "High-profile deals", "International network"],
+    "languages": ["Hebrew", "English", "German", "Spanish"],
+    "founded": 1985,
+    "headquarters": "London, England",
+    "offices": ["Tel Aviv", "Munich", "Madrid"],
+    "achievements": [
+      "Veteran agent award",
+      "Lifetime achievement",
+      "Industry pioneer"
+    ],
+    "contactInfo": {
+      "email": "contact@zahavisports.com",
+      "phone": "+44 20 111 1111",
+      "website": "www.zahavisports.com"
+    }
+  }
+]

@@ -1,260 +1,353 @@
-<div class="header-container">
-  <h1>
-    <nb-icon icon="home-outline" pack="eva"></nb-icon>
-    Tableau de bord
-  </h1>
-  <div class="actions-container">
-    <button nbButton status="primary" size="medium">
-      <nb-icon icon="refresh-outline" pack="eva"></nb-icon>
-      Actualiser
-    </button>
-  </div>
-</div>
+<!-- Hero Section -->
+<div class="hero-section" [ngClass]="getHeroBackgroundClass()">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        <span class="gradient-text">Tactic Sense</span>
+        <span class="subtitle">Intelligence Footballistique</span>
+      </h1>
+      <p class="hero-description">
+        La plateforme de prédiction sportive la plus avancée au monde.
+        Découvrez, analysez et connectez-vous avec l'écosystème football grâce à notre IA révolutionnaire.
+      </p>
+      <div class="hero-actions">
+        <button nbButton status="primary" size="large" (click)="exploreAI()">
+          <nb-icon icon="bulb-outline" pack="eva"></nb-icon>
+          Explorer l'IA
+        </button>
+        <button nbButton ghost status="basic" size="large" (click)="watchDemo()">
+          <nb-icon icon="play-circle-outline" pack="eva"></nb-icon>
+          Voir la démo
+        </button>
+      </div>
 
-<div class="row">
-  <div class="col-xxxl-12 col-xxl-12 col-lg-12">
-    <nb-card class="welcome-card">
-      <nb-card-body>
-        <div class="welcome-content">
-          <h2>Bienvenue sur SportLink - Le LinkedIn du Sport</h2>
-          <p>
-            Explorez notre plateforme dédiée aux professionnels du sport. Connectez-vous avec des joueurs, 
-            clubs, agents et sponsors du monde entier.
-          </p>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-cards">
+        <div class="floating-card card-1">
+          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+          <span>Prédictions IA</span>
         </div>
-      </nb-card-body>
-    </nb-card>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xxxl-3 col-md-6">
-    <nb-card status="primary" class="stakeholder-card">
-      <nb-card-header>
-        <nb-icon icon="people-outline" pack="eva"></nb-icon>
-        Joueurs
-      </nb-card-header>
-      <nb-card-body>
-        <div class="stat-item">
+        <div class="floating-card card-2">
           <nb-icon icon="people-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">3,721</div>
-            <div class="stat-label">Joueurs inscrits</div>
-          </div>
+          <span>Réseau Global</span>
         </div>
-        <div class="stat-item">
-          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">+12%</div>
-            <div class="stat-label">Ce mois-ci</div>
-          </div>
+        <div class="floating-card card-3">
+          <nb-icon icon="bar-chart-outline" pack="eva"></nb-icon>
+          <span>Analytics Avancés</span>
         </div>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton status="primary" size="small" routerLink="/pages/players">
-          Voir tous les joueurs
-        </button>
-      </nb-card-footer>
-    </nb-card>
-  </div>
-
-  <div class="col-xxxl-3 col-md-6">
-    <nb-card status="info" class="stakeholder-card">
-      <nb-card-header>
-        <nb-icon icon="shield-outline" pack="eva"></nb-icon>
-        Clubs
-      </nb-card-header>
-      <nb-card-body>
-        <div class="stat-item">
-          <nb-icon icon="shield-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">482</div>
-            <div class="stat-label">Clubs enregistrés</div>
-          </div>
-        </div>
-        <div class="stat-item">
-          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">+8%</div>
-            <div class="stat-label">Ce mois-ci</div>
-          </div>
-        </div>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton status="info" size="small" routerLink="/pages/clubs">
-          Voir tous les clubs
-        </button>
-      </nb-card-footer>
-    </nb-card>
-  </div>
-
-  <div class="col-xxxl-3 col-md-6">
-    <nb-card status="success" class="stakeholder-card">
-      <nb-card-header>
-        <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
-        Agents
-      </nb-card-header>
-      <nb-card-body>
-        <div class="stat-item">
-          <nb-icon icon="briefcase-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">215</div>
-            <div class="stat-label">Agents enregistrés</div>
-          </div>
-        </div>
-        <div class="stat-item">
-          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">+5%</div>
-            <div class="stat-label">Ce mois-ci</div>
-          </div>
-        </div>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton status="success" size="small" routerLink="/pages/agents">
-          Voir tous les agents
-        </button>
-      </nb-card-footer>
-    </nb-card>
-  </div>
-
-  <div class="col-xxxl-3 col-md-6">
-    <nb-card status="warning" class="stakeholder-card">
-      <nb-card-header>
-        <nb-icon icon="award-outline" pack="eva"></nb-icon>
-        Sponsors
-      </nb-card-header>
-      <nb-card-body>
-        <div class="stat-item">
-          <nb-icon icon="award-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">128</div>
-            <div class="stat-label">Sponsors actifs</div>
-          </div>
-        </div>
-        <div class="stat-item">
-          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
-          <div class="stat-content">
-            <div class="stat-value">+15%</div>
-            <div class="stat-label">Ce mois-ci</div>
-          </div>
-        </div>
-      </nb-card-body>
-      <nb-card-footer>
-        <button nbButton status="warning" size="small" routerLink="/pages/sponsors">
-          Voir tous les sponsors
-        </button>
-      </nb-card-footer>
-    </nb-card>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-xxxl-8 col-xxl-8 col-lg-8">
-    <nb-card size="large">
-      <nb-card-header>
-        Transferts récents
-      </nb-card-header>
-      <nb-card-body>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Joueur</th>
-                <th>De</th>
-                <th>Vers</th>
-                <th>Montant</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let transfer of recentTransfers">
-                <td>
-                  <nb-user [name]="transfer.player.name" 
-                          [picture]="transfer.player.picture"
-                          size="small">
-                  </nb-user>
-                </td>
-                <td>
-                  <div class="club-info-small">
-                    <img [src]="transfer.fromClub.logo" [alt]="transfer.fromClub.name" class="club-logo-small">
-                    <span>{{ transfer.fromClub.name }}</span>
-                  </div>
-                </td>
-                <td>
-                  <div class="club-info-small">
-                    <img [src]="transfer.toClub.logo" [alt]="transfer.toClub.name" class="club-logo-small">
-                    <span>{{ transfer.toClub.name }}</span>
-                  </div>
-                </td>
-                <td>{{ transfer.amount | currency:'EUR':'symbol':'1.0-0' }}</td>
-                <td>{{ transfer.date | date:'dd/MM/yyyy' }}</td>
-              </tr>
-            </tbody>
-          </table>
+<!-- Statistics Overview -->
+<div class="stats-section">
+  <div class="row">
+    <div class="col-xxxl-3 col-md-6" *ngFor="let stat of platformStats">
+      <div class="stat-card" [ngClass]="stat.type">
+        <div class="stat-icon">
+          <nb-icon [icon]="stat.icon" pack="eva"></nb-icon>
         </div>
-      </nb-card-body>
-    </nb-card>
-  </div>
-
-  <div class="col-xxxl-4 col-xxl-4 col-lg-4">
-    <nb-card size="large">
-      <nb-card-header>
-        Top 5 des joueurs les plus valorisés
-      </nb-card-header>
-      <nb-card-body>
-        <div class="player-value-list">
-          <div class="player-value-item" *ngFor="let player of topPlayers; let i = index">
-            <div class="rank">{{ i + 1 }}</div>
-            <nb-user [name]="player.name" 
-                    [title]="player.club"
-                    [picture]="player.picture"
-                    size="medium">
-            </nb-user>
-            <div class="value">{{ player.value | currency:'EUR':'symbol':'1.0-0' }}</div>
+        <div class="stat-content">
+          <div class="stat-number">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+          <div class="stat-growth" *ngIf="stat.growth">
+            <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+            <span>+{{ stat.growth }}%</span>
           </div>
         </div>
-      </nb-card-body>
-    </nb-card>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
-    <nb-card size="large">
-      <nb-card-header>
-        Dépenses de transfert par ligue
-      </nb-card-header>
-      <nb-card-body>
-        <div echarts [options]="transfersChartOptions" class="echart"></div>
-      </nb-card-body>
-    </nb-card>
-  </div>
-
-  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
-    <nb-card size="large">
-      <nb-card-header>
-        Événements à venir
-      </nb-card-header>
-      <nb-card-body>
-        <div class="events-list">
-          <div class="event-item" *ngFor="let event of upcomingEvents">
-            <div class="event-date">
-              <div class="day">{{ event.date | date:'dd' }}</div>
-              <div class="month">{{ event.date | date:'MMM' }}</div>
-            </div>
-            <div class="event-details">
-              <div class="event-title">{{ event.title }}</div>
-              <div class="event-location">
-                <nb-icon icon="pin-outline" pack="eva"></nb-icon>
-                <span>{{ event.location }}</span>
+<!-- About Platform Section -->
+<div class="about-section">
+  <nb-card class="about-card">
+    <nb-card-body>
+      <div class="about-content">
+        <div class="about-text">
+          <h2 class="section-title">
+            <nb-icon icon="info-outline" pack="eva"></nb-icon>
+            À propos de Tactic Sense
+          </h2>
+          <p class="about-description">
+            Tactic Sense révolutionne l'industrie du football en combinant intelligence artificielle,
+            big data et expertise sportive. Notre plateforme offre des insights inégalés pour
+            optimiser les décisions stratégiques dans le monde du football professionnel.
+          </p>
+          <div class="features-grid">
+            <div class="feature-item">
+              <nb-icon icon="shield-outline" pack="eva" status="success"></nb-icon>
+              <div>
+                <h6>Sécurité & Confidentialité</h6>
+                <p>Données protégées par cryptage de niveau bancaire</p>
               </div>
             </div>
-            <button nbButton ghost size="small">
-              <nb-icon icon="calendar-outline" pack="eva"></nb-icon>
-              Détails
+            <div class="feature-item">
+              <nb-icon icon="globe-outline" pack="eva" status="info"></nb-icon>
+              <div>
+                <h6>Couverture Mondiale</h6>
+                <p>Plus de 50 ligues et 10,000+ joueurs analysés</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <nb-icon icon="flash-outline" pack="eva" status="warning"></nb-icon>
+              <div>
+                <h6>Temps Réel</h6>
+                <p>Mises à jour instantanées et analyses live</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="tech-stack">
+            <div class="tech-item">
+              <div class="tech-icon ai">🤖</div>
+              <span>Intelligence Artificielle</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon data">📊</div>
+              <span>Big Data Analytics</span>
+            </div>
+            <div class="tech-item">
+              <div class="tech-icon ml">🧠</div>
+              <span>Machine Learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<!-- Services Section -->
+<div class="services-section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <nb-icon icon="settings-outline" pack="eva"></nb-icon>
+      Nos Services & Solutions
+    </h2>
+    <p class="section-subtitle">
+      Découvrez comment Tactic Sense transforme l'industrie du football
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col-xxxl-4 col-lg-6 col-md-12" *ngFor="let service of services">
+      <div class="service-card" [ngClass]="service.type">
+        <div class="service-header">
+          <div class="service-icon">
+            <nb-icon [icon]="service.icon" pack="eva"></nb-icon>
+          </div>
+          <div class="service-badge">{{ service.category }}</div>
+        </div>
+        <div class="service-content">
+          <h4 class="service-title">{{ service.title }}</h4>
+          <p class="service-description">{{ service.description }}</p>
+          <div class="service-features">
+            <div class="feature" *ngFor="let feature of service.features">
+              <nb-icon icon="checkmark-circle-outline" pack="eva" status="success"></nb-icon>
+              <span>{{ feature }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-footer">
+          <button nbButton [status]="service.buttonStatus" size="small" (click)="exploreService(service)">
+            {{ service.buttonText }}
+            <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI Models Showcase -->
+<div class="ai-models-section">
+  <nb-card class="ai-showcase-card">
+    <nb-card-header>
+      <div class="showcase-header">
+        <h2 class="section-title">
+          <nb-icon icon="cpu-outline" pack="eva"></nb-icon>
+          Modèles d'Intelligence Artificielle
+        </h2>
+        <p class="section-subtitle">
+          Nos algorithmes révolutionnaires au service de vos décisions
+        </p>
+      </div>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="ai-models-grid">
+        <div class="ai-model-card" *ngFor="let model of aiModels" [ngClass]="model.type">
+          <div class="model-header">
+            <div class="model-icon">
+              <nb-icon [icon]="model.icon" pack="eva"></nb-icon>
+            </div>
+            <div class="model-accuracy">
+              <span class="accuracy-label">Précision</span>
+              <span class="accuracy-value">{{ model.accuracy }}%</span>
+            </div>
+          </div>
+          <div class="model-content">
+            <h5 class="model-title">{{ model.name }}</h5>
+            <p class="model-description">{{ model.description }}</p>
+            <div class="model-metrics">
+              <div class="metric">
+                <span class="metric-label">Prédictions</span>
+                <span class="metric-value">{{ model.predictions }}</span>
+              </div>
+              <div class="metric">
+                <span class="metric-label">Succès</span>
+                <span class="metric-value">{{ model.successRate }}%</span>
+              </div>
+            </div>
+          </div>
+          <div class="model-footer">
+            <button nbButton status="primary" size="small" (click)="tryAIModel(model)">
+              <nb-icon icon="play-circle-outline" pack="eva"></nb-icon>
+              Essayer
             </button>
           </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<!-- Platform Utilities -->
+<div class="utilities-section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <nb-icon icon="grid-outline" pack="eva"></nb-icon>
+      Utilitaires de la Plateforme
+    </h2>
+    <p class="section-subtitle">
+      Outils puissants pour optimiser votre expérience
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="col-xxxl-6 col-lg-12">
+      <nb-card class="utility-card">
+        <nb-card-header>
+          <div class="utility-header">
+            <nb-icon icon="search-outline" pack="eva" status="info"></nb-icon>
+            <h5>Recherche Avancée</h5>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="utility-content">
+            <p>Trouvez exactement ce que vous cherchez avec nos filtres intelligents</p>
+            <div class="utility-features">
+              <div class="utility-feature">
+                <nb-icon icon="funnel-outline" pack="eva"></nb-icon>
+                <span>Filtres multi-critères</span>
+              </div>
+              <div class="utility-feature">
+                <nb-icon icon="flash-outline" pack="eva"></nb-icon>
+                <span>Recherche instantanée</span>
+              </div>
+              <div class="utility-feature">
+                <nb-icon icon="bookmark-outline" pack="eva"></nb-icon>
+                <span>Sauvegarde de recherches</span>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+    <div class="col-xxxl-6 col-lg-12">
+      <nb-card class="utility-card">
+        <nb-card-header>
+          <div class="utility-header">
+            <nb-icon icon="bar-chart-outline" pack="eva" status="success"></nb-icon>
+            <h5>Analytics & Rapports</h5>
+          </div>
+        </nb-card-header>
+        <nb-card-body>
+          <div class="utility-content">
+            <p>Générez des rapports détaillés et des analyses personnalisées</p>
+            <div class="utility-features">
+              <div class="utility-feature">
+                <nb-icon icon="pie-chart-outline" pack="eva"></nb-icon>
+                <span>Graphiques interactifs</span>
+              </div>
+              <div class="utility-feature">
+                <nb-icon icon="download-outline" pack="eva"></nb-icon>
+                <span>Export PDF/Excel</span>
+              </div>
+              <div class="utility-feature">
+                <nb-icon icon="calendar-outline" pack="eva"></nb-icon>
+                <span>Rapports programmés</span>
+              </div>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Access Section -->
+<div class="quick-access-section">
+  <nb-card class="quick-access-card">
+    <nb-card-header>
+      <h3 class="section-title">
+        <nb-icon icon="flash-outline" pack="eva"></nb-icon>
+        Accès Rapide
+      </h3>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="quick-access-grid">
+        <div class="quick-access-item" *ngFor="let item of quickAccessItems" (click)="navigateTo(item.route)">
+          <div class="access-icon" [ngClass]="item.type">
+            <nb-icon [icon]="item.icon" pack="eva"></nb-icon>
+          </div>
+          <div class="access-content">
+            <h6 class="access-title">{{ item.title }}</h6>
+            <p class="access-description">{{ item.description }}</p>
+            <div class="access-count">{{ item.count }} éléments</div>
+          </div>
+          <div class="access-arrow">
+            <nb-icon icon="arrow-forward-outline" pack="eva"></nb-icon>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<div class="row" [@slideUp]>
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
+    <nb-card>
+      <nb-card-header>
+        <div class="header-container">
+          <nb-icon icon="trending-up-outline" pack="eva"></nb-icon>
+          Market Values by Position
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="chart-container">
+          <canvas id="marketValueChart"></canvas>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6">
+    <nb-card>
+      <nb-card-header>
+        <div class="header-container">
+          <nb-icon icon="globe-outline" pack="eva"></nb-icon>
+          Distribution by Nationality
+        </div>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="chart-container">
+          <canvas id="nationalityChart"></canvas>
         </div>
       </nb-card-body>
     </nb-card>

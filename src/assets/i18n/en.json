@@ -1,0 +1,128 @@
+{
+  "HEADER": {
+    "TITLE": "TACTICSENSE",
+    "LANGUAGE": "Language",
+    "SEARCH": "Search...",
+    "PROFILE": "Profile",
+    "LOGOUT": "Logout"
+  },
+  "MENU": {
+    "DASHBOARD": "Dashboard",
+    "FOOTBALL": "FOOTBALL",
+    "PLAYERS": "Players",
+    "CLUBS": "Clubs",
+    "SPONSORS": "Sponsors",
+    "COACHES": "Coaches",
+    "AGENTS": "Agents",
+    "FEATURES": "FEATURES"
+  },
+  "DASHBOARD": {
+    "WELCOME": "Welcome to TacticSense - The football tactical analysis platform",
+    "DESCRIPTION": "Explore our platform dedicated to football professionals. Connect with players, clubs, agents and sponsors from around the world.",
+    "QUOTE": "Talent without working hard is nothing. Football is like life - you have to fight to achieve your goals.",
+    "AUTHOR": "- Cristiano Ronaldo"
+  },
+  "PLAYERS": {
+    "TITLE": "Players",
+    "SEARCH": "Search for a player...",
+    "NATIONALITY": "Nationality",
+    "ALL_NATIONALITIES": "All nationalities",
+    "POSITION": "Position",
+    "ALL_POSITIONS": "All positions",
+    "LOADING": "Loading players...",
+    "PROFILE": "View profile",
+    "RECOMMEND": "Recommend",
+    "MARKET_VALUE": "Market value",
+    "AGE": "years old",
+    "GOALS": "Goals",
+    "ASSISTS": "Assists",
+    "TROPHIES": "Trophies",
+    "AI_RECOMMENDATION": "AI Recommendation",
+    "FILTERS": "Filters",
+    "VALUE": "Value",
+    "CLUB": "Club",
+    "POTENTIAL": "Potential",
+    "CONTACT": "Contact",
+    "BACK": "Back"
+  },
+  "AI_RECOMMENDATION": {
+    "TITLE": "AI Recommendations",
+    "SUBTITLE": "Choose the analysis model that best fits your needs",
+    "TACTICAL_COMPATIBILITY": {
+      "TITLE": "Tactical Compatibility",
+      "DESCRIPTION": "Find players who integrate perfectly into your game system and tactical philosophy.",
+      "FEATURES": [
+        "Game system analysis",
+        "Positional compatibility",
+        "Adapted playing style",
+        "Tactical integration"
+      ]
+    },
+    "HIDDEN_GEMS": {
+      "TITLE": "Hidden Gems",
+      "DESCRIPTION": "Identify hidden talents with excellent value for money and high growth potential.",
+      "FEATURES": [
+        "Market value analysis",
+        "Growth potential",
+        "Emerging talents",
+        "Investment opportunities"
+      ]
+    },
+    "POSITION_ANALYSIS": {
+      "TITLE": "Position Analysis",
+      "DESCRIPTION": "In-depth analysis of players according to their specific position with detailed metrics.",
+      "FEATURES": [
+        "Specialized metrics",
+        "Position comparison",
+        "Performance analysis",
+        "Targeted recommendations"
+      ]
+    },
+    "SELECT_MODEL": "Select this model",
+    "HOW_IT_WORKS": "How does it work?",
+    "HOW_IT_WORKS_DESC": "Our AI models analyze thousands of player data in real time to offer you the most relevant recommendations according to your specific criteria."
+  },
+  "CLUBS": {
+    "TITLE": "Clubs",
+    "SEARCH": "Search for a club...",
+    "COUNTRY": "Country",
+    "ALL_COUNTRIES": "All countries",
+    "LOADING": "Loading clubs..."
+  },
+  "COACHES": {
+    "TITLE": "Coaches",
+    "SEARCH": "Search for a coach...",
+    "NATIONALITY": "Nationality",
+    "ALL_NATIONALITIES": "All nationalities",
+    "LOADING": "Loading coaches..."
+  },
+  "AGENTS": {
+    "TITLE": "Agents",
+    "SEARCH": "Search for an agent or player...",
+    "NATIONALITY": "Nationality",
+    "ALL_NATIONALITIES": "All nationalities",
+    "LOADING": "Loading agents..."
+  },
+  "SPONSORS": {
+    "TITLE": "Sponsors",
+    "SEARCH": "Search for a sponsor...",
+    "INDUSTRY": "Industry",
+    "ALL_INDUSTRIES": "All industries",
+    "LOADING": "Loading sponsors..."
+  },
+  "COMMON": {
+    "BACK": "Back",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "VIEW": "View",
+    "LOADING": "Loading...",
+    "NO_RESULTS": "No results found",
+    "SEARCH": "Search"
+  },
+  "FOOTER": {
+    "RIGHTS": "All rights reserved"
+  }
+}
+

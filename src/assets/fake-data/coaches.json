@@ -1,0 +1,168 @@
+[
+  {
+    "id": 1,
+    "name": "Pep Guardiola",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/5672-1694609670.jpg",
+    "age": 53,
+    "nationality": "Spain",
+    "currentClub": "Manchester City",
+    "experience": 16,
+    "trophies": 37,
+    "preferredFormation": "4-3-3",
+    "tacticalStyle": "Possession-based",
+    "achievements": [
+      "Premier League: 5 titles",
+      "Champions League: 3 titles",
+      "La Liga: 3 titles",
+      "Bundesliga: 3 titles"
+    ],
+    "specialties": ["Tiki-taka", "High pressing", "Positional play"],
+    "languages": ["Spanish", "English", "German", "Catalan"],
+    "contractUntil": "2025",
+    "marketValue": 25000000,
+    "stats": {
+      "matchesCoached": 890,
+      "winPercentage": 73.2,
+      "goalsPerGame": 2.4,
+      "cleanSheets": 285
+    }
+  },
+  {
+    "id": 2,
+    "name": "Carlo Ancelotti",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/523-1694609670.jpg",
+    "age": 64,
+    "nationality": "Italy",
+    "currentClub": "Real Madrid",
+    "experience": 28,
+    "trophies": 29,
+    "preferredFormation": "4-3-3",
+    "tacticalStyle": "Flexible",
+    "achievements": [
+      "Champions League: 4 titles",
+      "Premier League: 1 title",
+      "Serie A: 1 title",
+      "La Liga: 2 titles"
+    ],
+    "specialties": ["Man management", "Big game experience", "Tactical flexibility"],
+    "languages": ["Italian", "English", "Spanish", "French"],
+    "contractUntil": "2026",
+    "marketValue": 20000000,
+    "stats": {
+      "matchesCoached": 1245,
+      "winPercentage": 68.5,
+      "goalsPerGame": 2.1,
+      "cleanSheets": 398
+    }
+  },
+  {
+    "id": 3,
+    "name": "Jürgen Klopp",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/118-1694609670.jpg",
+    "age": 56,
+    "nationality": "Germany",
+    "currentClub": "Free Agent",
+    "experience": 23,
+    "trophies": 11,
+    "preferredFormation": "4-3-3",
+    "tacticalStyle": "Gegenpressing",
+    "achievements": [
+      "Champions League: 1 title",
+      "Premier League: 1 title",
+      "Bundesliga: 2 titles",
+      "FIFA Club World Cup: 1 title"
+    ],
+    "specialties": ["High intensity pressing", "Counter-attacking", "Team motivation"],
+    "languages": ["German", "English"],
+    "contractUntil": "Free",
+    "marketValue": 22000000,
+    "stats": {
+      "matchesCoached": 987,
+      "winPercentage": 61.8,
+      "goalsPerGame": 2.3,
+      "cleanSheets": 312
+    }
+  },
+  {
+    "id": 4,
+    "name": "Luis Enrique",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/3661-1694609670.jpg",
+    "age": 54,
+    "nationality": "Spain",
+    "currentClub": "Paris Saint-Germain",
+    "experience": 15,
+    "trophies": 12,
+    "preferredFormation": "4-2-3-1",
+    "tacticalStyle": "Attacking",
+    "achievements": [
+      "Champions League: 1 title",
+      "La Liga: 2 titles",
+      "Copa del Rey: 3 titles",
+      "UEFA Nations League: 1 title"
+    ],
+    "specialties": ["Youth development", "Attacking football", "Squad rotation"],
+    "languages": ["Spanish", "English", "French"],
+    "contractUntil": "2025",
+    "marketValue": 18000000,
+    "stats": {
+      "matchesCoached": 456,
+      "winPercentage": 69.3,
+      "goalsPerGame": 2.6,
+      "cleanSheets": 145
+    }
+  },
+  {
+    "id": 5,
+    "name": "Thomas Tuchel",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/7471-1694609670.jpg",
+    "age": 50,
+    "nationality": "Germany",
+    "currentClub": "Free Agent",
+    "experience": 13,
+    "trophies": 8,
+    "preferredFormation": "3-4-2-1",
+    "tacticalStyle": "Tactical flexibility",
+    "achievements": [
+      "Champions League: 1 title",
+      "Ligue 1: 2 titles",
+      "DFB-Pokal: 1 title",
+      "FIFA Club World Cup: 1 title"
+    ],
+    "specialties": ["Tactical innovation", "Defensive organization", "Set pieces"],
+    "languages": ["German", "English", "French"],
+    "contractUntil": "Free",
+    "marketValue": 16000000,
+    "stats": {
+      "matchesCoached": 567,
+      "winPercentage": 64.7,
+      "goalsPerGame": 2.0,
+      "cleanSheets": 198
+    }
+  },
+  {
+    "id": 6,
+    "name": "Mikel Arteta",
+    "photo": "https://img.a.transfermarkt.technology/portrait/big/6688-1694609670.jpg",
+    "age": 42,
+    "nationality": "Spain",
+    "currentClub": "Arsenal",
+    "experience": 5,
+    "trophies": 2,
+    "preferredFormation": "4-3-3",
+    "tacticalStyle": "Possession-based",
+    "achievements": [
+      "FA Cup: 1 title",
+      "FA Community Shield: 1 title"
+    ],
+    "specialties": ["Youth development", "Modern tactics", "Player improvement"],
+    "languages": ["Spanish", "English", "Basque"],
+    "contractUntil": "2027",
+    "marketValue": 12000000,
+    "stats": {
+      "matchesCoached": 234,
+      "winPercentage": 58.1,
+      "goalsPerGame": 1.9,
+      "cleanSheets": 89
+    }
+  }
+]

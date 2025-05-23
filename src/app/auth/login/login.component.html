@@ -1,20 +1,69 @@
-<div class="row">
-  <div class="col-md-12">
-    <nb-card>
-      <nb-card-header>
-        <h1>Connexion</h1>
-      </nb-card-header>
-      <nb-card-body>
+<div class="login-container">
+  <!-- Background Video/Image -->
+  <div class="background-overlay">
+    <div class="football-field-bg"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="login-content">
+    <!-- Left Side - Welcome Section -->
+    <div class="welcome-section">
+      <div class="brand-section">
+        <div class="logo-container">
+          <nb-icon icon="trending-up-outline" class="brand-icon"></nb-icon>
+          <h1 class="brand-title">TACTIC SENSE</h1>
+        </div>
+        <p class="brand-subtitle">Plateforme de Prédictions Sportives Intelligente</p>
+      </div>
+
+      <div class="features-preview">
+        <div class="feature-item">
+          <nb-icon icon="flash-outline" class="feature-icon"></nb-icon>
+          <div class="feature-text">
+            <h3>Prédictions IA</h3>
+            <p>Analyses avancées basées sur l'intelligence artificielle</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <nb-icon icon="people-outline" class="feature-icon"></nb-icon>
+          <div class="feature-text">
+            <h3>Réseau Global</h3>
+            <p>Connectez-vous avec des experts du monde entier</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <nb-icon icon="bar-chart-outline" class="feature-icon"></nb-icon>
+          <div class="feature-text">
+            <h3>Analytics Avancés</h3>
+            <p>Statistiques détaillées et insights personnalisés</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side - Login Form -->
+    <div class="login-section">
+      <div class="login-card">
+        <div class="login-header">
+          <h2>Bienvenue !</h2>
+          <p>Connectez-vous à votre compte Tactic Sense</p>
+        </div>
+
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-          <div class="form-control-group">
-            <label class="label" for="input-email">Email:</label>
-            <input nbInput
-                   fullWidth
-                   id="input-email"
-                   formControlName="email"
-                   placeholder="Email"
-                   autofocus
-                   [status]="loginForm.get('email')?.dirty ? (loginForm.get('email')?.invalid ? 'danger' : 'success') : 'basic'">
+          <div class="form-group">
+            <div class="input-container">
+              
+              <input nbInput
+                     fullWidth
+                     id="input-email"
+                     formControlName="email"
+                     placeholder="Votre adresse email"
+                     autofocus
+                     class="custom-input"
+                     [status]="loginForm.get('email')?.dirty ? (loginForm.get('email')?.invalid ? 'danger' : 'success') : 'basic'">
+            </div>
             <ng-container *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
               <p class="error-message" *ngIf="loginForm.get('email')?.errors?.['required']">
                 L'email est requis
@@ -24,48 +73,81 @@
               </p>
             </ng-container>
           </div>
-          
-          <div class="form-control-group">
-            <label class="label" for="input-password">Mot de passe:</label>
-            <input nbInput
-                   fullWidth
-                   id="input-password"
-                   formControlName="password"
-                   type="password"
-                   placeholder="Mot de passe"
-                   [status]="loginForm.get('password')?.dirty ? (loginForm.get('password')?.invalid ? 'danger' : 'success') : 'basic'">
+
+          <div class="form-group">
+            <div class="input-container">
+              
+              <input nbInput
+                     fullWidth
+                     id="input-password"
+                     formControlName="password"
+                     type="password"
+                     placeholder="Votre mot de passe"
+                     class="custom-input"
+                     [status]="loginForm.get('password')?.dirty ? (loginForm.get('password')?.invalid ? 'danger' : 'success') : 'basic'">
+            </div>
             <ng-container *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
               <p class="error-message" *ngIf="loginForm.get('password')?.errors?.['required']">
                 Le mot de passe est requis
               </p>
             </ng-container>
           </div>
-          
-          <div class="form-control-group accept-group">
-            <nb-checkbox formControlName="rememberMe">
+
+          <div class="form-options">
+            <nb-checkbox formControlName="rememberMe" class="remember-me">
               Se souvenir de moi
             </nb-checkbox>
             <a class="forgot-password" routerLink="../request-password">Mot de passe oublié ?</a>
           </div>
-          
-          <div class="alert-container">
-            <nb-alert status="danger" *ngIf="errorMessage">{{ errorMessage }}</nb-alert>
+
+          <div class="alert-container" *ngIf="errorMessage">
+            <nb-alert status="danger">{{ errorMessage }}</nb-alert>
           </div>
-          
+
           <button nbButton
                   fullWidth
                   status="primary"
+                  size="large"
                   [disabled]="loginForm.invalid || isLoading"
-                  [class.btn-pulse]="isLoading">
+                  class="login-btn"
+                  [class.loading]="isLoading">
+            <nb-icon *ngIf="isLoading" icon="loader-outline" class="loading-icon"></nb-icon>
             {{ isLoading ? 'Connexion en cours...' : 'Se connecter' }}
           </button>
         </form>
-        
-        <div class="links">
-          <span>Pas encore de compte ?</span>
-          <a routerLink="../register">S'inscrire</a>
+
+        <div class="divider">
+          <span>ou</span>
         </div>
-      </nb-card-body>
-    </nb-card>
+
+        <div class="social-login">
+          <button nbButton outline status="basic" fullWidth class="social-btn">
+            <nb-icon icon="google" class="social-icon"></nb-icon>
+            Continuer avec Google
+          </button>
+        </div>
+
+        <div class="demo-access">
+          <div class="demo-divider">
+            <span>Accès démo</span>
+          </div>
+          <button nbButton
+                  outline
+                  status="info"
+                  fullWidth
+                  class="demo-btn pulse-animation"
+                  (click)="swipeToPlatform()">
+            <nb-icon icon="arrow-forward-outline" class="demo-icon"></nb-icon>
+            🚀 Swiper vers la plateforme
+          </button>
+          <p class="demo-note">✨ Découvrez Tactic Sense sans inscription</p>
+        </div>
+
+        <div class="signup-link">
+          <span>Pas encore de compte ?</span>
+          <a routerLink="../register" class="signup-btn">Créer un compte</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

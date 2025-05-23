@@ -1,63 +1,62 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-
-export interface Club {
-  id: number;
-  name: string;
-  country: string;
-  league: string;
-  founded: number;
-  stadiumCapacity: number;
-  trophies: number;
-  value: number; // en millions €
-  image: string;
-}
+import { Club } from '../models/club.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClubsService {
-  private clubs: Club[] = [
-    {
-      id: 1,
-      name: 'Real Madrid',
-      country: 'Espagne',
-      league: 'La Liga',
-      founded: 1902,
-      stadiumCapacity: 81044,
-      trophies: 95,
-      value: 4600,
-      image: 'https://example.com/real.jpg'
-    },
-    {
-      id: 2,
-      name: 'Bayern Munich',
-      country: 'Allemagne',
-      league: 'Bundesliga',
-      founded: 1900,
-      stadiumCapacity: 75000,
-      trophies: 82,
-      value: 3800,
-      image: 'https://example.com/bayern.jpg'
-    },
-    {
-      id: 3,
-      name: 'Paris Saint-Germain',
-      country: 'France',
-      league: 'Ligue 1',
-      founded: 1970,
-      stadiumCapacity: 47929,
-      trophies: 45,
-      value: 3200,
-      image: 'https://example.com/psg.jpg'
+  private clubs: Club[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  getClubs(): Observable<Club[]> {
+    if (this.clubs.length > 0) {
+      return of(this.clubs);
     }
-  ];
+
+    return this.http.get<Club[]>('assets/fake-data/clubs.json');
+  }
 
   getAllClubs(): Observable<Club[]> {
-    return of(this.clubs);
+    return this.getClubs();
   }
 
   getClubById(id: number): Observable<Club | undefined> {
-    return of(this.clubs.find(c => c.id === id));
+    return new Observable(observer => {
+      this.getClubs().subscribe(clubs => {
+        const club = clubs.find(c => c.id === id);
+        observer.next(club);
+        observer.complete();
+      });
+    });
+  }
+
+  getClubsByCountry(country: string): Observable<Club[]> {
+    return new Observable(observer => {
+      this.getClubs().subscribe(clubs => {
+        const filteredClubs = clubs.filter(club =>
+          club.country.toLowerCase() === country.toLowerCase()
+        );
+        observer.next(filteredClubs);
+        observer.complete();
+      });
+    });
+  }
+
+  searchClubs(query: string): Observable<Club[]> {
+    return new Observable(observer => {
+      this.getClubs().subscribe(clubs => {
+        const filteredClubs = clubs.filter(club =>
+          club.name.toLowerCase().includes(query.toLowerCase()) ||
+          club.city.toLowerCase().includes(query.toLowerCase()) ||
+          club.country.toLowerCase().includes(query.toLowerCase()) ||
+          club.league.toLowerCase().includes(query.toLowerCase())
+        );
+        observer.next(filteredClubs);
+        observer.complete();
+      });
+    });
   }
 }
